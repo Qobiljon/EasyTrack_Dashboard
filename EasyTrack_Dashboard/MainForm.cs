@@ -22,22 +22,22 @@ namespace EasyTrack_Dashboard
             rootSplitContaner.Panel1Collapsed = !rootSplitContaner.Panel1Collapsed;
         }
 
-        private void campaignsLabel_Click(object sender, EventArgs e)
+        private void campaignsButton_Click(object sender, EventArgs e)
         {
             rootTabControl.SelectTab(campaignsTabPage.Name);
         }
 
-        private void userStatsLabel_Click(object sender, EventArgs e)
+        private void userStatsButton_Click(object sender, EventArgs e)
         {
             rootTabControl.SelectTab(userStatsTabPage.Name);
         }
 
-        private void labelLogs_Click(object sender, EventArgs e)
+        private void logsButton_Click(object sender, EventArgs e)
         {
             rootTabControl.SelectTab(logsTabPage.Name);
         }
 
-        private void feedbacksLabel_Click(object sender, EventArgs e)
+        private void feedbacksButton_Click(object sender, EventArgs e)
         {
             rootTabControl.SelectTab(feedbacksTabPage.Name);
         }

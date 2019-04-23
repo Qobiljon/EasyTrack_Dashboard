@@ -196,7 +196,7 @@
             this.rootTabControl.Margin = new System.Windows.Forms.Padding(0);
             this.rootTabControl.Name = "rootTabControl";
             this.rootTabControl.SelectedIndex = 0;
-            this.rootTabControl.Size = new System.Drawing.Size(1100, 725);
+            this.rootTabControl.Size = new System.Drawing.Size(1103, 725);
             this.rootTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.rootTabControl.TabIndex = 1;
             // 
@@ -208,7 +208,7 @@
             this.campaignsTabPage.Location = new System.Drawing.Point(4, 5);
             this.campaignsTabPage.Name = "campaignsTabPage";
             this.campaignsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.campaignsTabPage.Size = new System.Drawing.Size(1092, 716);
+            this.campaignsTabPage.Size = new System.Drawing.Size(1095, 716);
             this.campaignsTabPage.TabIndex = 0;
             this.campaignsTabPage.Text = "tabPage1";
             // 
@@ -219,7 +219,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1086, 32);
+            this.panel1.Size = new System.Drawing.Size(1089, 32);
             this.panel1.TabIndex = 3;
             // 
             // campaignListLabel
@@ -243,7 +243,7 @@
             this.label1.ForeColor = System.Drawing.Color.Lime;
             this.label1.Image = global::EasyTrack_Dashboard.Properties.Resources.new_campaign4;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(805, 0);
+            this.label1.Location = new System.Drawing.Point(808, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(281, 25);
             this.label1.TabIndex = 1;
@@ -257,7 +257,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 46);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1086, 667);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1089, 667);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // userStatsTabPage
@@ -266,7 +266,7 @@
             this.userStatsTabPage.Location = new System.Drawing.Point(4, 5);
             this.userStatsTabPage.Name = "userStatsTabPage";
             this.userStatsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.userStatsTabPage.Size = new System.Drawing.Size(1092, 716);
+            this.userStatsTabPage.Size = new System.Drawing.Size(1095, 716);
             this.userStatsTabPage.TabIndex = 1;
             this.userStatsTabPage.Text = "tabPage2";
             // 
@@ -276,7 +276,7 @@
             this.logsTabPage.Location = new System.Drawing.Point(4, 5);
             this.logsTabPage.Name = "logsTabPage";
             this.logsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.logsTabPage.Size = new System.Drawing.Size(1092, 716);
+            this.logsTabPage.Size = new System.Drawing.Size(1095, 716);
             this.logsTabPage.TabIndex = 2;
             this.logsTabPage.Text = "tabPage1";
             // 
@@ -286,7 +286,7 @@
             this.feedbacksTabPage.Location = new System.Drawing.Point(4, 5);
             this.feedbacksTabPage.Name = "feedbacksTabPage";
             this.feedbacksTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.feedbacksTabPage.Size = new System.Drawing.Size(1092, 716);
+            this.feedbacksTabPage.Size = new System.Drawing.Size(1095, 716);
             this.feedbacksTabPage.TabIndex = 3;
             this.feedbacksTabPage.Text = "tabPage2";
             // 

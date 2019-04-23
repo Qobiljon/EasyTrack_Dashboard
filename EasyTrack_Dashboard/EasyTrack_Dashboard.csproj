@@ -90,31 +90,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\new_campaign1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\new_campaign2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\new_campaign3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\new_campaign4.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\avatar_64.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\new_campaign.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\search_64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

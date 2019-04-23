@@ -15,6 +15,8 @@ namespace EasyTrack_Dashboard
         public MainForm()
         {
             InitializeComponent();
+
+            Tools.init();
         }
 
         private void toggleFeaturesButton_Click(object sender, EventArgs e)

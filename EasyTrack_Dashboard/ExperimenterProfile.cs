@@ -9,7 +9,7 @@ namespace EasyTrack_Dashboard
             InitializeComponent();
         }
 
-        public string Username { set { usernameLabel.Text = value; } get { return usernameLabel.Text; } }
-        public string ProfileType { set { typeLabel.Text = value; } get { return typeLabel.Text; } }
+        public string ExperimenterUsername { set { usernameLabel.Text = value; } get { return usernameLabel.Text; } }
+        public string ExperimenterProfileType { set { typeLabel.Text = value; } get { return typeLabel.Text; } }
     }
 }

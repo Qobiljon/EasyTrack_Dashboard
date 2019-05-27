@@ -41,9 +41,9 @@
             this.typeLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
             this.typeLabel.Location = new System.Drawing.Point(68, 18);
             this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(40, 18);
+            this.typeLabel.Size = new System.Drawing.Size(104, 18);
             this.typeLabel.TabIndex = 5;
-            this.typeLabel.Text = "Type";
+            this.typeLabel.Text = "Experimenter";
             // 
             // usernameLabel
             // 
@@ -52,9 +52,9 @@
             this.usernameLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
             this.usernameLabel.Location = new System.Drawing.Point(68, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(40, 18);
+            this.usernameLabel.Size = new System.Drawing.Size(48, 18);
             this.usernameLabel.TabIndex = 4;
-            this.usernameLabel.Text = "Name";
+            this.usernameLabel.Text = "Kevin";
             // 
             // usersAvatarPictureBox
             // 
@@ -62,7 +62,7 @@
             this.usersAvatarPictureBox.Image = global::EasyTrack_Dashboard.Properties.Resources.avatar_64;
             this.usersAvatarPictureBox.ImageLocation = "";
             this.usersAvatarPictureBox.Location = new System.Drawing.Point(0, 0);
-            this.usersAvatarPictureBox.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.usersAvatarPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.usersAvatarPictureBox.Name = "usersAvatarPictureBox";
             this.usersAvatarPictureBox.Size = new System.Drawing.Size(68, 68);
             this.usersAvatarPictureBox.TabIndex = 3;

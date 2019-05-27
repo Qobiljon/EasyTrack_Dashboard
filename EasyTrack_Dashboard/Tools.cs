@@ -15,6 +15,7 @@ namespace EasyTrack_Dashboard
         internal const string API_SUBMIT_HEARTBEAT = "heartbeat";
         internal const string API_SUBMIT_DATA = "submit_data";
         internal const string API_NOTIFY = "notify";
+        internal const string API_GET_PARTICIPANT_LIST = "get_participant_list";
         #endregion
 
         internal async static Task<HttpResponseMessage> post(string api, Dictionary<string, string> body, byte[] fileContent = null)

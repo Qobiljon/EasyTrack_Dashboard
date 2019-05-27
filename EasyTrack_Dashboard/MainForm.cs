@@ -54,6 +54,7 @@ namespace EasyTrack_Dashboard
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            stopLiveUserTrackingToolStripMenuItem.PerformClick();
             Properties.Settings.Default.LoggedIn = false;
             Properties.Settings.Default.Save();
             DialogResult = DialogResult.OK;
@@ -91,7 +92,7 @@ namespace EasyTrack_Dashboard
                                 {
                                     string username = data["username"].ToString();
                                     username = username.Substring(1, username.Length - 2);
-                                    TimeSpan diff = DateTime.Now.Subtract(new DateTime(long.Parse(data["last_synced_timestamp"].ToString())));
+                                    uint lastSyncMinsAgo = uint.Parse(data["last_synced_timestamp"].ToString());
                                     Tools.runOnUiThread(this, () =>
                                     {
                                         if (!participantProfileElems.ContainsKey(username))
@@ -102,9 +103,9 @@ namespace EasyTrack_Dashboard
                                         }
 
                                         participantProfileElems[username].ParticipantUsername = username;
-                                        participantProfileElems[username].ParticipantIsActive = diff.TotalMinutes < 720;
-                                        participantProfileElems[username].ParticipantLastSyncTime = $"{diff.ToString("h'h:'m'm:'s's'")} ago";
-                                        participantProfileElems[username].ParticipantAmountOfData = $"{(diff.TotalMinutes > 720 ? '=' : '+')}{data["amount_of_data"].ToString()} samples";
+                                        participantProfileElems[username].ParticipantIsActive = lastSyncMinsAgo < 360;
+                                        participantProfileElems[username].ParticipantLastSyncTime = lastSyncMinsAgo < 2 ? "syncing now" : $"{lastSyncMinsAgo} mins ago";
+                                        participantProfileElems[username].ParticipantAmountOfData = $"{(lastSyncMinsAgo > 720 ? '=' : '+')}{data["amount_of_data"].ToString()} samples";
                                     });
                                 }
                             else
@@ -115,7 +116,14 @@ namespace EasyTrack_Dashboard
                     }
                     catch (Exception ex)
                     {
-                        Tools.runOnUiThread(this, () => { MessageBox.Show(this, $"Error occurred while loading user's list.\nReason: {ex.Message}", "Failed to load the user list", MessageBoxButtons.OK, MessageBoxIcon.Error); });
+                        try
+                        {
+                            Tools.runOnUiThread(this, () => { MessageBox.Show(this, $"Error occurred while loading user's list.\nReason: {ex.Message}", "Failed to load the user list", MessageBoxButtons.OK, MessageBoxIcon.Error); });
+                        }
+                        catch
+                        {
+
+                        }
                     }
                     Thread.Sleep(3000);
                 }

@@ -1,49 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace EasyTrack_Dashboard
 {
-    internal struct Server
-    {
-        private string ip;
-        private short port;
-
-        public Server(string ip, short port)
-        {
-            this.ip = ip;
-            this.port = port;
-        }
-
-        internal System.Net.IPAddress IP_Address { get { return System.Net.IPAddress.Parse(ip); } }
-        internal short Port { get { return port; } }
-    }
     class Tools
     {
-        internal static void init()
-        {
-            httpClient.Timeout = new TimeSpan(hours: 0, minutes: 0, seconds: 2);
-        }
-
         #region Constants
-        internal const string REGISTER_API = "register";
-        internal const string UNREGISTER_API = "unregister";
-        internal const string AUTHENTICATE_API = "authenticate";
+        internal const string API_REGISTER = "register";
+        internal const string API_UNREGISTER = "unregister";
+        internal const string API_AUTHENTICATE = "authenticate";
+        internal const string API_SUBMIT_HEARTBEAT = "heartbeat";
+        internal const string API_SUBMIT_DATA = "submit_data";
+        internal const string API_NOTIFY = "notify";
         #endregion
 
-        #region Variables
-        internal static Server server = new Server(ip: "165.246.43.162", port: 9876);
-        private static readonly HttpClient httpClient = new HttpClient();
-        #endregion
-
-        internal static async Task<string> post(string api, Dictionary<string, string> body)
+        internal async static Task<HttpResponseMessage> post(string api, Dictionary<string, string> body, byte[] fileContent = null)
         {
-            FormUrlEncodedContent content = new FormUrlEncodedContent(body);
-            HttpResponseMessage response = await httpClient.PostAsync(api, content);
-            return await response.Content.ReadAsStringAsync();
+            const string SERVER_URL = "http://165.246.43.162:36012";
+            // const string SERVER_URL = "http://165.246.43.163:9876";
+
+            if (fileContent == null)
+                using (HttpClient client = new HttpClient())
+                    return await client.PostAsync($"{SERVER_URL}/{api}", new FormUrlEncodedContent(body));
+            else
+                using (HttpContent bytesContent = new ByteArrayContent(fileContent))
+                using (MultipartFormDataContent formData = new MultipartFormDataContent())
+                using (HttpClient client = new HttpClient())
+                {
+                    foreach (var elem in body)
+                        formData.Add(new StringContent(elem.Value), elem.Key, elem.Key);
+                    formData.Add(bytesContent, "file", "file");
+                    return await client.PostAsync($"{SERVER_URL}/{api}", formData);
+                }
         }
+
+        internal static void runOnUiThread(Control control, Action action)
+        {
+            control.BeginInvoke(action);
+        }
+    }
+
+    // Result codes from server
+    enum ServerResult
+    {
+        OK = 0,
+        FAIL = 1,
+        BAD_JSON_PARAMETERS = 2,
+        USERNAME_TAKEN = 3,
+        TOO_SHORT_PASSWORD = 4,
+        TOO_LONG_PASSWORD = 5,
+        USER_DOES_NOT_EXIST = 6,
+        BAD_PASSWORD = 7
     }
 }

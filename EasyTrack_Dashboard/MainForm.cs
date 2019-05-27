@@ -16,8 +16,15 @@ namespace EasyTrack_Dashboard
         {
             InitializeComponent();
 
-            Tools.init();
+            moveBackToLoginForm = false;
+            experimenterProfile.Username = Properties.Settings.Default.Username;
+            experimenterProfile.ProfileType = Properties.Settings.Default.Type;
+            logoutToolStripMenuItem.Text = $"Logout from [{experimenterProfile.Username}]";
         }
+
+        #region Variables
+        private bool moveBackToLoginForm;
+        #endregion
 
         private void toggleFeaturesButton_Click(object sender, EventArgs e)
         {
@@ -42,6 +49,21 @@ namespace EasyTrack_Dashboard
         private void feedbacksButton_Click(object sender, EventArgs e)
         {
             rootTabControl.SelectTab(feedbacksTabPage.Name);
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.LoggedIn = false;
+            Properties.Settings.Default.Save();
+            DialogResult = DialogResult.OK;
+            moveBackToLoginForm = true;
+            Close();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!moveBackToLoginForm)
+                DialogResult = DialogResult.Cancel;
         }
     }
 }

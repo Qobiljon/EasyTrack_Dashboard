@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EasyTrack_Dashboard
@@ -16,7 +13,24 @@ namespace EasyTrack_Dashboard
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            if (Properties.Settings.Default.LoggedIn)
+            {
+                Form form = null;
+                do
+                {
+                    form = form == null || form is AuthenticationForm ? (Form)new MainForm() : new AuthenticationForm();
+                    Application.Run(form);
+                } while (form.DialogResult == DialogResult.OK);
+            }
+            else
+            {
+                Form form = null;
+                do
+                {
+                    form = form == null || form is MainForm ? (Form)new AuthenticationForm() : new MainForm();
+                    Application.Run(form);
+                } while (form.DialogResult == DialogResult.OK);
+            }
         }
     }
 }

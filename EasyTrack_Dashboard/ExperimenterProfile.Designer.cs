@@ -28,58 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.usersRoleLabel = new System.Windows.Forms.Label();
-            this.usersNameLabel = new System.Windows.Forms.Label();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.usernameLabel = new System.Windows.Forms.Label();
             this.usersAvatarPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.usersAvatarPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // usersRoleLabel
+            // typeLabel
             // 
-            this.usersRoleLabel.AutoSize = true;
-            this.usersRoleLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.usersRoleLabel.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.usersRoleLabel.ForeColor = System.Drawing.Color.White;
-            this.usersRoleLabel.Location = new System.Drawing.Point(69, 23);
-            this.usersRoleLabel.Name = "usersRoleLabel";
-            this.usersRoleLabel.Size = new System.Drawing.Size(85, 18);
-            this.usersRoleLabel.TabIndex = 5;
-            this.usersRoleLabel.Text = "Profile type";
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.typeLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.typeLabel.Location = new System.Drawing.Point(68, 18);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(40, 18);
+            this.typeLabel.TabIndex = 5;
+            this.typeLabel.Text = "Type";
             // 
-            // usersNameLabel
+            // usernameLabel
             // 
-            this.usersNameLabel.AutoSize = true;
-            this.usersNameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.usersNameLabel.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.usersNameLabel.ForeColor = System.Drawing.Color.White;
-            this.usersNameLabel.Location = new System.Drawing.Point(69, 5);
-            this.usersNameLabel.Name = "usersNameLabel";
-            this.usersNameLabel.Size = new System.Drawing.Size(137, 18);
-            this.usersNameLabel.TabIndex = 4;
-            this.usersNameLabel.Text = "Experimenter name";
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.usernameLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.usernameLabel.Location = new System.Drawing.Point(68, 0);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(40, 18);
+            this.usernameLabel.TabIndex = 4;
+            this.usernameLabel.Text = "Name";
             // 
             // usersAvatarPictureBox
             // 
             this.usersAvatarPictureBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.usersAvatarPictureBox.Image = global::EasyTrack_Dashboard.Properties.Resources.avatar_64;
-            this.usersAvatarPictureBox.Location = new System.Drawing.Point(5, 5);
+            this.usersAvatarPictureBox.ImageLocation = "";
+            this.usersAvatarPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.usersAvatarPictureBox.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.usersAvatarPictureBox.Name = "usersAvatarPictureBox";
-            this.usersAvatarPictureBox.Size = new System.Drawing.Size(64, 64);
+            this.usersAvatarPictureBox.Size = new System.Drawing.Size(68, 68);
             this.usersAvatarPictureBox.TabIndex = 3;
             this.usersAvatarPictureBox.TabStop = false;
             // 
             // ExperimenterProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DodgerBlue;
-            this.Controls.Add(this.usersRoleLabel);
-            this.Controls.Add(this.usersNameLabel);
+            this.Controls.Add(this.typeLabel);
+            this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.usersAvatarPictureBox);
-            this.Margin = new System.Windows.Forms.Padding(5);
+            this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "ExperimenterProfile";
-            this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(283, 74);
+            this.Size = new System.Drawing.Size(330, 68);
             ((System.ComponentModel.ISupportInitialize)(this.usersAvatarPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -88,8 +86,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label usersRoleLabel;
-        private System.Windows.Forms.Label usersNameLabel;
+        private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.PictureBox usersAvatarPictureBox;
     }
 }

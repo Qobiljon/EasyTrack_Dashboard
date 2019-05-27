@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace EasyTrack_Dashboard
 {
@@ -16,5 +8,8 @@ namespace EasyTrack_Dashboard
         {
             InitializeComponent();
         }
+
+        public string Username { set { usernameLabel.Text = value; } get { return usernameLabel.Text; } }
+        public string ProfileType { set { typeLabel.Text = value; } get { return typeLabel.Text; } }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace EasyTrack_Dashboard
@@ -9,7 +10,7 @@ namespace EasyTrack_Dashboard
         {
             InitializeComponent();
         }
-        
+
         public bool ParticipantIsActive
         {
             set

@@ -65,6 +65,12 @@
     <Compile Include="CampaignElement.Designer.cs">
       <DependentUpon>CampaignElement.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSourceElement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DataSourceElement.Designer.cs">
+      <DependentUpon>DataSourceElement.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExperimenterProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,6 +99,15 @@
     <Compile Include="ParticipantProfile.Designer.cs">
       <DependentUpon>ParticipantProfile.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CampaignCreatorForm.resx">
+      <DependentUpon>CampaignCreatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CampaignElement.resx">
+      <DependentUpon>CampaignElement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataSourceElement.resx">
+      <DependentUpon>DataSourceElement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExperimenterProfile.resx">
       <DependentUpon>ExperimenterProfile.cs</DependentUpon>
     </EmbeddedResource>

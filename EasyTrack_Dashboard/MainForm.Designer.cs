@@ -36,9 +36,14 @@
             this.logsButton = new System.Windows.Forms.Button();
             this.userStatsButton = new System.Windows.Forms.Button();
             this.campaignsButton = new System.Windows.Forms.Button();
+            this.experimenterProfile = new EasyTrack_Dashboard.ExperimenterProfile();
             this.rootTabControl = new System.Windows.Forms.TabControl();
+            this.campaignsTabPage = new System.Windows.Forms.TabPage();
+            this.campaignsTopBarPanel = new System.Windows.Forms.Panel();
+            this.createNewCampaignButton = new System.Windows.Forms.Button();
+            this.campaignListLabel = new System.Windows.Forms.Label();
             this.userStatsTabPage = new System.Windows.Forms.TabPage();
-            this.userStatsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.userStatsPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,11 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.userStatsTopBarPanel = new System.Windows.Forms.Panel();
             this.userStatsLabel = new System.Windows.Forms.Label();
-            this.campaignsTabPage = new System.Windows.Forms.TabPage();
-            this.campaignsTopBarPanel = new System.Windows.Forms.Panel();
-            this.createNewCampaignButton = new System.Windows.Forms.Button();
-            this.campaignListLabel = new System.Windows.Forms.Label();
-            this.campaignsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.logsTabPage = new System.Windows.Forms.TabPage();
             this.logsTopBarPanel = new System.Windows.Forms.Panel();
             this.logsLabel = new System.Windows.Forms.Label();
@@ -61,22 +61,22 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.experimenterProfile = new EasyTrack_Dashboard.ExperimenterProfile();
             this.liveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startLiveUserTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopLiveUserTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.campaignsPanel = new System.Windows.Forms.Panel();
             this.appTopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rootSplitContaner)).BeginInit();
             this.rootSplitContaner.Panel1.SuspendLayout();
             this.rootSplitContaner.Panel2.SuspendLayout();
             this.rootSplitContaner.SuspendLayout();
             this.rootTabControl.SuspendLayout();
-            this.userStatsTabPage.SuspendLayout();
-            this.userStatsFlowLayoutPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.userStatsTopBarPanel.SuspendLayout();
             this.campaignsTabPage.SuspendLayout();
             this.campaignsTopBarPanel.SuspendLayout();
+            this.userStatsTabPage.SuspendLayout();
+            this.userStatsPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.userStatsTopBarPanel.SuspendLayout();
             this.logsTabPage.SuspendLayout();
             this.logsTopBarPanel.SuspendLayout();
             this.feedbacksTabPage.SuspendLayout();
@@ -92,7 +92,7 @@
             this.appTopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.appTopBarPanel.Location = new System.Drawing.Point(0, 24);
             this.appTopBarPanel.Name = "appTopBarPanel";
-            this.appTopBarPanel.Size = new System.Drawing.Size(984, 41);
+            this.appTopBarPanel.Size = new System.Drawing.Size(1048, 41);
             this.appTopBarPanel.TabIndex = 1;
             // 
             // toggleFeaturesButton
@@ -144,7 +144,7 @@
             // 
             this.rootSplitContaner.Panel2.Controls.Add(this.rootTabControl);
             this.rootSplitContaner.Panel2MinSize = 700;
-            this.rootSplitContaner.Size = new System.Drawing.Size(984, 496);
+            this.rootSplitContaner.Size = new System.Drawing.Size(1048, 476);
             this.rootSplitContaner.SplitterDistance = 230;
             this.rootSplitContaner.SplitterWidth = 1;
             this.rootSplitContaner.TabIndex = 2;
@@ -213,45 +213,113 @@
             this.campaignsButton.UseVisualStyleBackColor = true;
             this.campaignsButton.Click += new System.EventHandler(this.campaignsButton_Click);
             // 
+            // experimenterProfile
+            // 
+            this.experimenterProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.experimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.experimenterProfile.ExperimenterProfileType = "Experimenter";
+            this.experimenterProfile.ExperimenterUsername = "Kevin";
+            this.experimenterProfile.Location = new System.Drawing.Point(0, 0);
+            this.experimenterProfile.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.experimenterProfile.Name = "experimenterProfile";
+            this.experimenterProfile.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.experimenterProfile.Size = new System.Drawing.Size(230, 59);
+            this.experimenterProfile.TabIndex = 7;
+            // 
             // rootTabControl
             // 
             this.rootTabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.rootTabControl.Controls.Add(this.userStatsTabPage);
             this.rootTabControl.Controls.Add(this.campaignsTabPage);
+            this.rootTabControl.Controls.Add(this.userStatsTabPage);
             this.rootTabControl.Controls.Add(this.logsTabPage);
             this.rootTabControl.Controls.Add(this.feedbacksTabPage);
             this.rootTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rootTabControl.ItemSize = new System.Drawing.Size(0, 1);
             this.rootTabControl.Location = new System.Drawing.Point(0, 0);
             this.rootTabControl.Name = "rootTabControl";
-            this.rootTabControl.SelectedIndex = 0;
-            this.rootTabControl.Size = new System.Drawing.Size(753, 496);
+            this.rootTabControl.SelectedIndex = 2;
+            this.rootTabControl.Size = new System.Drawing.Size(817, 476);
             this.rootTabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.rootTabControl.TabIndex = 1;
+            // 
+            // campaignsTabPage
+            // 
+            this.campaignsTabPage.BackColor = System.Drawing.Color.SteelBlue;
+            this.campaignsTabPage.Controls.Add(this.campaignsPanel);
+            this.campaignsTabPage.Controls.Add(this.campaignsTopBarPanel);
+            this.campaignsTabPage.Location = new System.Drawing.Point(4, 5);
+            this.campaignsTabPage.Margin = new System.Windows.Forms.Padding(0);
+            this.campaignsTabPage.Name = "campaignsTabPage";
+            this.campaignsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.campaignsTabPage.Size = new System.Drawing.Size(809, 467);
+            this.campaignsTabPage.TabIndex = 0;
+            this.campaignsTabPage.Text = "tabPage1";
+            // 
+            // campaignsTopBarPanel
+            // 
+            this.campaignsTopBarPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.campaignsTopBarPanel.Controls.Add(this.createNewCampaignButton);
+            this.campaignsTopBarPanel.Controls.Add(this.campaignListLabel);
+            this.campaignsTopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.campaignsTopBarPanel.Location = new System.Drawing.Point(3, 3);
+            this.campaignsTopBarPanel.Name = "campaignsTopBarPanel";
+            this.campaignsTopBarPanel.Size = new System.Drawing.Size(803, 34);
+            this.campaignsTopBarPanel.TabIndex = 3;
+            // 
+            // createNewCampaignButton
+            // 
+            this.createNewCampaignButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.createNewCampaignButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.createNewCampaignButton.FlatAppearance.BorderSize = 0;
+            this.createNewCampaignButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.createNewCampaignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.createNewCampaignButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.createNewCampaignButton.ForeColor = System.Drawing.Color.Lime;
+            this.createNewCampaignButton.Image = global::EasyTrack_Dashboard.Properties.Resources.new_campaign;
+            this.createNewCampaignButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.createNewCampaignButton.Location = new System.Drawing.Point(453, 0);
+            this.createNewCampaignButton.Name = "createNewCampaignButton";
+            this.createNewCampaignButton.Size = new System.Drawing.Size(350, 34);
+            this.createNewCampaignButton.TabIndex = 2;
+            this.createNewCampaignButton.Text = "CREATE NEW CAMPAIGN";
+            this.createNewCampaignButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.createNewCampaignButton.UseVisualStyleBackColor = true;
+            this.createNewCampaignButton.Click += new System.EventHandler(this.createNewCampaignButton_Click_1);
+            // 
+            // campaignListLabel
+            // 
+            this.campaignListLabel.AutoSize = true;
+            this.campaignListLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.campaignListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.campaignListLabel.ForeColor = System.Drawing.Color.White;
+            this.campaignListLabel.Location = new System.Drawing.Point(0, 0);
+            this.campaignListLabel.Name = "campaignListLabel";
+            this.campaignListLabel.Size = new System.Drawing.Size(201, 25);
+            this.campaignListLabel.TabIndex = 0;
+            this.campaignListLabel.Text = "CAMPAIGNS LIST";
             // 
             // userStatsTabPage
             // 
             this.userStatsTabPage.BackColor = System.Drawing.Color.SteelBlue;
-            this.userStatsTabPage.Controls.Add(this.userStatsFlowLayoutPanel);
+            this.userStatsTabPage.Controls.Add(this.userStatsPanel);
             this.userStatsTabPage.Controls.Add(this.userStatsTopBarPanel);
             this.userStatsTabPage.Location = new System.Drawing.Point(4, 5);
             this.userStatsTabPage.Name = "userStatsTabPage";
             this.userStatsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.userStatsTabPage.Size = new System.Drawing.Size(745, 487);
+            this.userStatsTabPage.Size = new System.Drawing.Size(809, 467);
             this.userStatsTabPage.TabIndex = 1;
             this.userStatsTabPage.Text = "tabPage2";
             // 
-            // userStatsFlowLayoutPanel
+            // userStatsPanel
             // 
-            this.userStatsFlowLayoutPanel.BackColor = System.Drawing.Color.White;
-            this.userStatsFlowLayoutPanel.Controls.Add(this.panel1);
-            this.userStatsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userStatsFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.userStatsFlowLayoutPanel.Location = new System.Drawing.Point(3, 33);
-            this.userStatsFlowLayoutPanel.Name = "userStatsFlowLayoutPanel";
-            this.userStatsFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.userStatsFlowLayoutPanel.Size = new System.Drawing.Size(739, 451);
-            this.userStatsFlowLayoutPanel.TabIndex = 4;
+            this.userStatsPanel.BackColor = System.Drawing.Color.White;
+            this.userStatsPanel.Controls.Add(this.panel1);
+            this.userStatsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userStatsPanel.Location = new System.Drawing.Point(3, 33);
+            this.userStatsPanel.Name = "userStatsPanel";
+            this.userStatsPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.userStatsPanel.Size = new System.Drawing.Size(803, 431);
+            this.userStatsPanel.TabIndex = 0;
             // 
             // panel1
             // 
@@ -260,15 +328,17 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(9, 8);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(10, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(725, 13);
-            this.panel1.TabIndex = 4;
+            this.panel1.Size = new System.Drawing.Size(783, 13);
+            this.panel1.TabIndex = 5;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(491, 0);
+            this.label4.Location = new System.Drawing.Point(582, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 12);
             this.label4.TabIndex = 3;
@@ -277,7 +347,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(236, 1);
+            this.label3.Location = new System.Drawing.Point(245, 1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 12);
             this.label3.TabIndex = 2;
@@ -286,7 +356,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(94, 0);
+            this.label2.Location = new System.Drawing.Point(91, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 12);
             this.label2.TabIndex = 1;
@@ -307,7 +377,7 @@
             this.userStatsTopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.userStatsTopBarPanel.Location = new System.Drawing.Point(3, 3);
             this.userStatsTopBarPanel.Name = "userStatsTopBarPanel";
-            this.userStatsTopBarPanel.Size = new System.Drawing.Size(739, 30);
+            this.userStatsTopBarPanel.Size = new System.Drawing.Size(803, 30);
             this.userStatsTopBarPanel.TabIndex = 5;
             // 
             // userStatsLabel
@@ -322,72 +392,6 @@
             this.userStatsLabel.TabIndex = 0;
             this.userStatsLabel.Text = "USER STATISTICS";
             // 
-            // campaignsTabPage
-            // 
-            this.campaignsTabPage.BackColor = System.Drawing.Color.SteelBlue;
-            this.campaignsTabPage.Controls.Add(this.campaignsTopBarPanel);
-            this.campaignsTabPage.Controls.Add(this.campaignsFlowLayoutPanel);
-            this.campaignsTabPage.Location = new System.Drawing.Point(4, 5);
-            this.campaignsTabPage.Margin = new System.Windows.Forms.Padding(0);
-            this.campaignsTabPage.Name = "campaignsTabPage";
-            this.campaignsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.campaignsTabPage.Size = new System.Drawing.Size(745, 487);
-            this.campaignsTabPage.TabIndex = 0;
-            this.campaignsTabPage.Text = "tabPage1";
-            // 
-            // campaignsTopBarPanel
-            // 
-            this.campaignsTopBarPanel.BackColor = System.Drawing.Color.SteelBlue;
-            this.campaignsTopBarPanel.Controls.Add(this.createNewCampaignButton);
-            this.campaignsTopBarPanel.Controls.Add(this.campaignListLabel);
-            this.campaignsTopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.campaignsTopBarPanel.Location = new System.Drawing.Point(3, 3);
-            this.campaignsTopBarPanel.Name = "campaignsTopBarPanel";
-            this.campaignsTopBarPanel.Size = new System.Drawing.Size(739, 34);
-            this.campaignsTopBarPanel.TabIndex = 3;
-            // 
-            // createNewCampaignButton
-            // 
-            this.createNewCampaignButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.createNewCampaignButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.createNewCampaignButton.FlatAppearance.BorderSize = 0;
-            this.createNewCampaignButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.createNewCampaignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createNewCampaignButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.createNewCampaignButton.ForeColor = System.Drawing.Color.Lime;
-            this.createNewCampaignButton.Image = global::EasyTrack_Dashboard.Properties.Resources.new_campaign;
-            this.createNewCampaignButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.createNewCampaignButton.Location = new System.Drawing.Point(389, 0);
-            this.createNewCampaignButton.Name = "createNewCampaignButton";
-            this.createNewCampaignButton.Size = new System.Drawing.Size(350, 34);
-            this.createNewCampaignButton.TabIndex = 2;
-            this.createNewCampaignButton.Text = "CREATE NEW CAMPAIGN";
-            this.createNewCampaignButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.createNewCampaignButton.UseVisualStyleBackColor = true;
-            // 
-            // campaignListLabel
-            // 
-            this.campaignListLabel.AutoSize = true;
-            this.campaignListLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.campaignListLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.campaignListLabel.ForeColor = System.Drawing.Color.White;
-            this.campaignListLabel.Location = new System.Drawing.Point(0, 0);
-            this.campaignListLabel.Name = "campaignListLabel";
-            this.campaignListLabel.Size = new System.Drawing.Size(201, 25);
-            this.campaignListLabel.TabIndex = 0;
-            this.campaignListLabel.Text = "CAMPAIGNS LIST";
-            // 
-            // campaignsFlowLayoutPanel
-            // 
-            this.campaignsFlowLayoutPanel.BackColor = System.Drawing.Color.White;
-            this.campaignsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.campaignsFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.campaignsFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.campaignsFlowLayoutPanel.Name = "campaignsFlowLayoutPanel";
-            this.campaignsFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.campaignsFlowLayoutPanel.Size = new System.Drawing.Size(739, 481);
-            this.campaignsFlowLayoutPanel.TabIndex = 2;
-            // 
             // logsTabPage
             // 
             this.logsTabPage.BackColor = System.Drawing.Color.SteelBlue;
@@ -396,7 +400,7 @@
             this.logsTabPage.Location = new System.Drawing.Point(4, 5);
             this.logsTabPage.Name = "logsTabPage";
             this.logsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.logsTabPage.Size = new System.Drawing.Size(745, 487);
+            this.logsTabPage.Size = new System.Drawing.Size(809, 467);
             this.logsTabPage.TabIndex = 2;
             this.logsTabPage.Text = "tabPage1";
             // 
@@ -406,7 +410,7 @@
             this.logsTopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.logsTopBarPanel.Location = new System.Drawing.Point(3, 3);
             this.logsTopBarPanel.Name = "logsTopBarPanel";
-            this.logsTopBarPanel.Size = new System.Drawing.Size(739, 30);
+            this.logsTopBarPanel.Size = new System.Drawing.Size(803, 30);
             this.logsTopBarPanel.TabIndex = 7;
             // 
             // logsLabel
@@ -429,7 +433,7 @@
             this.logsFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.logsFlowLayoutPanel.Name = "logsFlowLayoutPanel";
             this.logsFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.logsFlowLayoutPanel.Size = new System.Drawing.Size(739, 481);
+            this.logsFlowLayoutPanel.Size = new System.Drawing.Size(803, 461);
             this.logsFlowLayoutPanel.TabIndex = 6;
             // 
             // feedbacksTabPage
@@ -439,7 +443,7 @@
             this.feedbacksTabPage.Location = new System.Drawing.Point(4, 5);
             this.feedbacksTabPage.Name = "feedbacksTabPage";
             this.feedbacksTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.feedbacksTabPage.Size = new System.Drawing.Size(745, 487);
+            this.feedbacksTabPage.Size = new System.Drawing.Size(809, 467);
             this.feedbacksTabPage.TabIndex = 3;
             this.feedbacksTabPage.Text = "tabPage2";
             // 
@@ -449,7 +453,7 @@
             this.feedbacksTopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.feedbacksTopBarPanel.Location = new System.Drawing.Point(3, 3);
             this.feedbacksTopBarPanel.Name = "feedbacksTopBarPanel";
-            this.feedbacksTopBarPanel.Size = new System.Drawing.Size(739, 30);
+            this.feedbacksTopBarPanel.Size = new System.Drawing.Size(803, 30);
             this.feedbacksTopBarPanel.TabIndex = 7;
             // 
             // feedbacksLabel
@@ -472,7 +476,7 @@
             this.liveToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1048, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -492,19 +496,6 @@
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // experimenterProfile
-            // 
-            this.experimenterProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.experimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.experimenterProfile.ExperimenterProfileType = "Experimenter";
-            this.experimenterProfile.ExperimenterUsername = "Kevin";
-            this.experimenterProfile.Location = new System.Drawing.Point(0, 0);
-            this.experimenterProfile.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.experimenterProfile.Name = "experimenterProfile";
-            this.experimenterProfile.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.experimenterProfile.Size = new System.Drawing.Size(230, 59);
-            this.experimenterProfile.TabIndex = 7;
             // 
             // liveToolStripMenuItem
             // 
@@ -529,17 +520,26 @@
             this.stopLiveUserTrackingToolStripMenuItem.Text = "Stop live user tracking";
             this.stopLiveUserTrackingToolStripMenuItem.Click += new System.EventHandler(this.stopLiveUserTrackingToolStripMenuItem_Click);
             // 
+            // campaignsPanel
+            // 
+            this.campaignsPanel.BackColor = System.Drawing.Color.White;
+            this.campaignsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.campaignsPanel.Location = new System.Drawing.Point(3, 37);
+            this.campaignsPanel.Name = "campaignsPanel";
+            this.campaignsPanel.Size = new System.Drawing.Size(803, 427);
+            this.campaignsPanel.TabIndex = 4;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1048, 541);
             this.Controls.Add(this.rootSplitContaner);
             this.Controls.Add(this.appTopBarPanel);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(1000, 600);
+            this.MinimumSize = new System.Drawing.Size(1064, 580);
             this.Name = "MainForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -552,15 +552,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.rootSplitContaner)).EndInit();
             this.rootSplitContaner.ResumeLayout(false);
             this.rootTabControl.ResumeLayout(false);
+            this.campaignsTabPage.ResumeLayout(false);
+            this.campaignsTopBarPanel.ResumeLayout(false);
+            this.campaignsTopBarPanel.PerformLayout();
             this.userStatsTabPage.ResumeLayout(false);
-            this.userStatsFlowLayoutPanel.ResumeLayout(false);
+            this.userStatsPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.userStatsTopBarPanel.ResumeLayout(false);
             this.userStatsTopBarPanel.PerformLayout();
-            this.campaignsTabPage.ResumeLayout(false);
-            this.campaignsTopBarPanel.ResumeLayout(false);
-            this.campaignsTopBarPanel.PerformLayout();
             this.logsTabPage.ResumeLayout(false);
             this.logsTopBarPanel.ResumeLayout(false);
             this.logsTopBarPanel.PerformLayout();
@@ -585,7 +585,6 @@
         private System.Windows.Forms.TabPage logsTabPage;
         private System.Windows.Forms.TabPage feedbacksTabPage;
         private System.Windows.Forms.Label campaignListLabel;
-        private System.Windows.Forms.FlowLayoutPanel campaignsFlowLayoutPanel;
         private System.Windows.Forms.Panel campaignsTopBarPanel;
         private ExperimenterProfile experimenterProfile;
         private System.Windows.Forms.Button campaignsButton;
@@ -594,7 +593,6 @@
         private System.Windows.Forms.Button feedbacksButton;
         private System.Windows.Forms.Panel userStatsTopBarPanel;
         private System.Windows.Forms.Label userStatsLabel;
-        private System.Windows.Forms.FlowLayoutPanel userStatsFlowLayoutPanel;
         private System.Windows.Forms.Panel logsTopBarPanel;
         private System.Windows.Forms.Label logsLabel;
         private System.Windows.Forms.FlowLayoutPanel logsFlowLayoutPanel;
@@ -604,14 +602,16 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem liveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startLiveUserTrackingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopLiveUserTrackingToolStripMenuItem;
+        private System.Windows.Forms.Panel userStatsPanel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel campaignsPanel;
     }
 }
 

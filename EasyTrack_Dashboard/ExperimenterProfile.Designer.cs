@@ -39,7 +39,7 @@
             this.typeLabel.AutoSize = true;
             this.typeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.typeLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.typeLabel.Location = new System.Drawing.Point(68, 18);
+            this.typeLabel.Location = new System.Drawing.Point(78, 28);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(104, 18);
             this.typeLabel.TabIndex = 5;
@@ -50,7 +50,7 @@
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.usernameLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.usernameLabel.Location = new System.Drawing.Point(68, 0);
+            this.usernameLabel.Location = new System.Drawing.Point(78, 10);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(48, 18);
             this.usernameLabel.TabIndex = 4;
@@ -61,7 +61,7 @@
             this.usersAvatarPictureBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.usersAvatarPictureBox.Image = global::EasyTrack_Dashboard.Properties.Resources.avatar_64;
             this.usersAvatarPictureBox.ImageLocation = "";
-            this.usersAvatarPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.usersAvatarPictureBox.Location = new System.Drawing.Point(10, 10);
             this.usersAvatarPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.usersAvatarPictureBox.Name = "usersAvatarPictureBox";
             this.usersAvatarPictureBox.Size = new System.Drawing.Size(68, 68);
@@ -77,7 +77,8 @@
             this.Controls.Add(this.usersAvatarPictureBox);
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "ExperimenterProfile";
-            this.Size = new System.Drawing.Size(330, 68);
+            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Size = new System.Drawing.Size(196, 88);
             ((System.ComponentModel.ISupportInitialize)(this.usersAvatarPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

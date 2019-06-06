@@ -29,11 +29,9 @@
         private void InitializeComponent()
         {
             this.labelParticipantLastSyncTime = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelParticipantAmountOfData = new System.Windows.Forms.Label();
             this.labelParticipantStatus = new System.Windows.Forms.Label();
             this.labelParticipantUsername = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.labelParticipantAmountOfData = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelParticipantLastSyncTime
@@ -45,27 +43,6 @@
             this.labelParticipantLastSyncTime.Size = new System.Drawing.Size(96, 18);
             this.labelParticipantLastSyncTime.TabIndex = 12;
             this.labelParticipantLastSyncTime.Text = "37 mins ago";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.labelParticipantAmountOfData);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(435, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(290, 64);
-            this.panel1.TabIndex = 14;
-            // 
-            // labelParticipantAmountOfData
-            // 
-            this.labelParticipantAmountOfData.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.labelParticipantAmountOfData.Image = global::EasyTrack_Dashboard.Properties.Resources.arrow_up;
-            this.labelParticipantAmountOfData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelParticipantAmountOfData.Location = new System.Drawing.Point(56, 25);
-            this.labelParticipantAmountOfData.Name = "labelParticipantAmountOfData";
-            this.labelParticipantAmountOfData.Size = new System.Drawing.Size(144, 18);
-            this.labelParticipantAmountOfData.TabIndex = 15;
-            this.labelParticipantAmountOfData.Text = "123456 samples";
-            this.labelParticipantAmountOfData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelParticipantStatus
             // 
@@ -89,20 +66,34 @@
             this.labelParticipantUsername.TabIndex = 11;
             this.labelParticipantUsername.Text = "User #1";
             // 
+            // labelParticipantAmountOfData
+            // 
+            this.labelParticipantAmountOfData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelParticipantAmountOfData.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.labelParticipantAmountOfData.Image = global::EasyTrack_Dashboard.Properties.Resources.arrow_up;
+            this.labelParticipantAmountOfData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelParticipantAmountOfData.Location = new System.Drawing.Point(515, 25);
+            this.labelParticipantAmountOfData.Name = "labelParticipantAmountOfData";
+            this.labelParticipantAmountOfData.Size = new System.Drawing.Size(144, 18);
+            this.labelParticipantAmountOfData.TabIndex = 16;
+            this.labelParticipantAmountOfData.Text = "123456 samples";
+            this.labelParticipantAmountOfData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // ParticipantProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.labelParticipantAmountOfData);
             this.Controls.Add(this.labelParticipantStatus);
             this.Controls.Add(this.labelParticipantUsername);
             this.Controls.Add(this.labelParticipantLastSyncTime);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaximumSize = new System.Drawing.Size(3000, 66);
-            this.MinimumSize = new System.Drawing.Size(725, 66);
+            this.MinimumSize = new System.Drawing.Size(725, 60);
             this.Name = "ParticipantProfile";
-            this.Size = new System.Drawing.Size(725, 64);
-            this.panel1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(723, 60);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,8 +102,7 @@
         #endregion
         private System.Windows.Forms.Label labelParticipantLastSyncTime;
         private System.Windows.Forms.Label labelParticipantStatus;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelParticipantAmountOfData;
         private System.Windows.Forms.Label labelParticipantUsername;
+        private System.Windows.Forms.Label labelParticipantAmountOfData;
     }
 }

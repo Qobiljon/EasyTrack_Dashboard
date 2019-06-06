@@ -28,56 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelParticipantAmountOfData = new System.Windows.Forms.Label();
-            this.labelParticipantStatus = new System.Windows.Forms.Label();
-            this.labelParticipantUsername = new System.Windows.Forms.Label();
-            this.labelParticipantLastSyncTime = new System.Windows.Forms.Label();
+            this.campaignStatusLabel = new System.Windows.Forms.Label();
+            this.campaignNameLabel = new System.Windows.Forms.Label();
+            this.campaignParticipantsCountLabel = new System.Windows.Forms.Label();
+            this.campaignStartDateLabel = new System.Windows.Forms.Label();
+            this.campaignEndDateLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // labelParticipantAmountOfData
+            // campaignStatusLabel
             // 
-            this.labelParticipantAmountOfData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelParticipantAmountOfData.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.labelParticipantAmountOfData.Image = global::EasyTrack_Dashboard.Properties.Resources.arrow_up;
-            this.labelParticipantAmountOfData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelParticipantAmountOfData.Location = new System.Drawing.Point(535, 21);
-            this.labelParticipantAmountOfData.Name = "labelParticipantAmountOfData";
-            this.labelParticipantAmountOfData.Size = new System.Drawing.Size(144, 18);
-            this.labelParticipantAmountOfData.TabIndex = 20;
-            this.labelParticipantAmountOfData.Text = "123456 samples";
-            this.labelParticipantAmountOfData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.campaignStatusLabel.AutoSize = true;
+            this.campaignStatusLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.campaignStatusLabel.Image = global::EasyTrack_Dashboard.Properties.Resources.red_dot;
+            this.campaignStatusLabel.Location = new System.Drawing.Point(24, 21);
+            this.campaignStatusLabel.Name = "campaignStatusLabel";
+            this.campaignStatusLabel.Size = new System.Drawing.Size(16, 18);
+            this.campaignStatusLabel.TabIndex = 19;
+            this.campaignStatusLabel.Tag = "true";
+            this.campaignStatusLabel.Text = " ";
             // 
-            // labelParticipantStatus
+            // campaignNameLabel
             // 
-            this.labelParticipantStatus.AutoSize = true;
-            this.labelParticipantStatus.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.labelParticipantStatus.Image = global::EasyTrack_Dashboard.Properties.Resources.red_dot;
-            this.labelParticipantStatus.Location = new System.Drawing.Point(24, 21);
-            this.labelParticipantStatus.Name = "labelParticipantStatus";
-            this.labelParticipantStatus.Size = new System.Drawing.Size(16, 18);
-            this.labelParticipantStatus.TabIndex = 19;
-            this.labelParticipantStatus.Tag = "true";
-            this.labelParticipantStatus.Text = " ";
+            this.campaignNameLabel.AutoSize = true;
+            this.campaignNameLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.campaignNameLabel.Location = new System.Drawing.Point(91, 21);
+            this.campaignNameLabel.Name = "campaignNameLabel";
+            this.campaignNameLabel.Size = new System.Drawing.Size(112, 18);
+            this.campaignNameLabel.TabIndex = 17;
+            this.campaignNameLabel.Text = "Campaign name";
             // 
-            // labelParticipantUsername
+            // campaignParticipantsCountLabel
             // 
-            this.labelParticipantUsername.AutoSize = true;
-            this.labelParticipantUsername.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.labelParticipantUsername.Location = new System.Drawing.Point(116, 21);
-            this.labelParticipantUsername.Name = "labelParticipantUsername";
-            this.labelParticipantUsername.Size = new System.Drawing.Size(64, 18);
-            this.labelParticipantUsername.TabIndex = 17;
-            this.labelParticipantUsername.Text = "User #1";
+            this.campaignParticipantsCountLabel.AutoSize = true;
+            this.campaignParticipantsCountLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.campaignParticipantsCountLabel.Location = new System.Drawing.Point(259, 21);
+            this.campaignParticipantsCountLabel.Name = "campaignParticipantsCountLabel";
+            this.campaignParticipantsCountLabel.Size = new System.Drawing.Size(16, 18);
+            this.campaignParticipantsCountLabel.TabIndex = 18;
+            this.campaignParticipantsCountLabel.Text = "0";
             // 
-            // labelParticipantLastSyncTime
+            // campaignStartDateLabel
             // 
-            this.labelParticipantLastSyncTime.AutoSize = true;
-            this.labelParticipantLastSyncTime.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.labelParticipantLastSyncTime.Location = new System.Drawing.Point(274, 21);
-            this.labelParticipantLastSyncTime.Name = "labelParticipantLastSyncTime";
-            this.labelParticipantLastSyncTime.Size = new System.Drawing.Size(96, 18);
-            this.labelParticipantLastSyncTime.TabIndex = 18;
-            this.labelParticipantLastSyncTime.Text = "37 mins ago";
+            this.campaignStartDateLabel.AutoSize = true;
+            this.campaignStartDateLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.campaignStartDateLabel.Location = new System.Drawing.Point(363, 11);
+            this.campaignStartDateLabel.Name = "campaignStartDateLabel";
+            this.campaignStartDateLabel.Size = new System.Drawing.Size(72, 36);
+            this.campaignStartDateLabel.TabIndex = 21;
+            this.campaignStartDateLabel.Text = "START\r\nDATETIME";
+            this.campaignStartDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // campaignEndDateLabel
+            // 
+            this.campaignEndDateLabel.AutoSize = true;
+            this.campaignEndDateLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.campaignEndDateLabel.Location = new System.Drawing.Point(491, 11);
+            this.campaignEndDateLabel.Name = "campaignEndDateLabel";
+            this.campaignEndDateLabel.Size = new System.Drawing.Size(72, 36);
+            this.campaignEndDateLabel.TabIndex = 22;
+            this.campaignEndDateLabel.Text = "END\r\nDATETIME";
+            this.campaignEndDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.label3.Location = new System.Drawing.Point(627, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(16, 18);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "0";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(693, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(66, 23);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "DETAILS";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // CampaignElement
             // 
@@ -85,24 +116,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.labelParticipantAmountOfData);
-            this.Controls.Add(this.labelParticipantStatus);
-            this.Controls.Add(this.labelParticipantUsername);
-            this.Controls.Add(this.labelParticipantLastSyncTime);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.campaignEndDateLabel);
+            this.Controls.Add(this.campaignStartDateLabel);
+            this.Controls.Add(this.campaignStatusLabel);
+            this.Controls.Add(this.campaignNameLabel);
+            this.Controls.Add(this.campaignParticipantsCountLabel);
             this.MaximumSize = new System.Drawing.Size(3000, 66);
             this.MinimumSize = new System.Drawing.Size(725, 60);
             this.Name = "CampaignElement";
-            this.Size = new System.Drawing.Size(723, 58);
+            this.Size = new System.Drawing.Size(800, 58);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label labelParticipantAmountOfData;
-        private System.Windows.Forms.Label labelParticipantStatus;
-        private System.Windows.Forms.Label labelParticipantUsername;
-        private System.Windows.Forms.Label labelParticipantLastSyncTime;
+        private System.Windows.Forms.Label campaignStatusLabel;
+        private System.Windows.Forms.Label campaignNameLabel;
+        private System.Windows.Forms.Label campaignParticipantsCountLabel;
+        private System.Windows.Forms.Label campaignStartDateLabel;
+        private System.Windows.Forms.Label campaignEndDateLabel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button1;
     }
 }

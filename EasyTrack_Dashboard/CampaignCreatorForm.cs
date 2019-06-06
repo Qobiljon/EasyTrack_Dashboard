@@ -51,6 +51,7 @@ namespace EasyTrack_Dashboard
                                     DataSourceElement elem = new DataSourceElement();
                                     elem.DeviceName = dataSrc["device"];
                                     elem.SourceName = dataSrc["source_name"];
+                                    elem.DataRate = dataSrc["data_rate"];
                                     elem.Tag = dataSrc["source_id"];
                                     dataSourcesFlowLayoutPanel.Controls.Add(elem);
                                 });

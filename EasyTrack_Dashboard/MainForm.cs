@@ -14,19 +14,27 @@ namespace EasyTrack_Dashboard
             InitializeComponent();
 
             moveBackToLoginForm = false;
+
             experimenterProfile.ExperimenterUsername = Properties.Settings.Default.Username;
             experimenterProfile.ExperimenterProfileType = Properties.Settings.Default.Type;
+
             logoutToolStripMenuItem.Text = $"Logout from [{experimenterProfile.ExperimenterUsername}]";
+
             participantProfileElems = new Dictionary<string, ParticipantProfile>();
             startLiveUserTrackingToolStripMenuItem.PerformClick();
-            loadCampaignsList();
+
+            campaignElems = new Dictionary<int, CampaignElement>(); ;
+            startCampaignsListUpdateThread();
+
             rootTabControl.SelectedTab = campaignsTabPage;
         }
 
         #region Variables
         private bool moveBackToLoginForm;
-        private Thread participateStatsUpdateThread;
+        private Thread participantStatsUpdateThread;
         private Dictionary<string, ParticipantProfile> participantProfileElems;
+        private Thread campaignsListUpdateThread;
+        private Dictionary<int, CampaignElement> campaignElems;
         #endregion
 
         private void toggleFeaturesButton_Click(object sender, EventArgs e)
@@ -72,10 +80,10 @@ namespace EasyTrack_Dashboard
 
         private void startLiveUserTrackingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (participateStatsUpdateThread != null && participateStatsUpdateThread.IsAlive)
-                participateStatsUpdateThread.Abort();
+            if (participantStatsUpdateThread != null && participantStatsUpdateThread.IsAlive)
+                participantStatsUpdateThread.Abort();
 
-            participateStatsUpdateThread = new Thread(async () =>
+            participantStatsUpdateThread = new Thread(async () =>
             {
                 while (true)
                 {
@@ -142,13 +150,13 @@ namespace EasyTrack_Dashboard
                 }
             });
 
-            participateStatsUpdateThread.Start();
+            participantStatsUpdateThread.Start();
         }
 
         private void stopLiveUserTrackingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (participateStatsUpdateThread != null && participateStatsUpdateThread.IsAlive)
-                participateStatsUpdateThread.Abort();
+            if (participantStatsUpdateThread != null && participantStatsUpdateThread.IsAlive)
+                participantStatsUpdateThread.Abort();
         }
 
         private void createNewCampaignButton_Click(object sender, EventArgs e)
@@ -166,54 +174,83 @@ namespace EasyTrack_Dashboard
             }
         }
 
-        private void loadCampaignsList()
+        private void startCampaignsListUpdateThread()
         {
-            new Thread(async () =>
-            {
-                try
-                {
-                    HttpResponseMessage response = await Tools.post(Tools.API_GET_CAMPAIGNS, new Dictionary<string, string>
-                    {
-                        { "username", Properties.Settings.Default.Username },
-                        { "password", Properties.Settings.Default.Password },
-                    });
+            if (campaignsListUpdateThread != null && campaignsListUpdateThread.IsAlive)
+                campaignsListUpdateThread.Abort();
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        JsonObject resJson = (JsonObject)JsonValue.Parse(await response.Content.ReadAsStringAsync());
-                        if (resJson.ContainsKey("result") && (ServerResult)int.Parse(resJson["result"].ToString()) == ServerResult.OK)
-                        {
-                            foreach (JsonObject dataSrc in resJson["campaigns"])
-                            {
-                                Tools.runOnUiThread(this, () =>
-                                {
-                                    DataSourceElement elem = new DataSourceElement();
-                                    elem.DeviceName = dataSrc["device"];
-                                    elem.SourceName = dataSrc["source_name"];
-                                    elem.Tag = dataSrc["source_id"];
-                                    elem.Dock = DockStyle.Top;
-                                    campaignsPanel.Controls.Add(elem);
-                                });
-                            }
-                        }
-                        else
-                            throw new Exception($"Bad result from server. Content: {resJson.ToString()}");
-                    }
-                    else
-                        throw new Exception($"Bad http result, status code {response.StatusCode}");
-                }
-                catch (Exception ex)
+            campaignsListUpdateThread = new Thread(async () =>
+            {
+                while (true)
                 {
                     try
                     {
-                        Tools.runOnUiThread(this, () => { MessageBox.Show(this, $"Error occurred while loading campaigns list.\nReason: {ex.Message}", "Failed to load the user list", MessageBoxButtons.OK, MessageBoxIcon.Error); });
-                    }
-                    catch
-                    {
+                        HttpResponseMessage result = await Tools.post(Tools.API_GET_CAMPAIGNS, new Dictionary<string, string>
+                        {
+                            { "username", Properties.Settings.Default.Username },
+                            { "password", Properties.Settings.Default.Password }
+                        });
+                        if (result.IsSuccessStatusCode)
+                        {
+                            JsonObject resJson = (JsonObject)JsonValue.Parse(await result.Content.ReadAsStringAsync());
+                            if (resJson.ContainsKey("result") && (ServerResult)int.Parse(resJson["result"].ToString()) == ServerResult.OK)
+                                foreach (JsonValue data in resJson["campaigns"])
+                                {
+                                    int campaign_id = data["campaign_id"];
+                                    Tools.runOnUiThread(this, () =>
+                                    {
+                                        if (!campaignElems.ContainsKey(campaign_id))
+                                        {
+                                            CampaignElement campaign = new CampaignElement();
+                                            campaign.Dock = DockStyle.Top;
+                                            Control topBar = campaignsPanel.Controls[0];
+                                            campaignsPanel.Controls.RemoveAt(0);
+                                            campaignsPanel.Controls.Add(campaign);
+                                            campaignsPanel.Controls.Add(topBar);
 
+                                            campaignElems[campaign_id] = campaign;
+                                        }
+
+                                        campaignElems[campaign_id].CampaignId = campaign_id;
+                                        campaignElems[campaign_id].CampaignOwner = data["campaign_owner"];
+                                        campaignElems[campaign_id].CampaignName = data["campaign_name"];
+                                        campaignElems[campaign_id].CampaignStartDate = data["campaign_start_date"];
+                                        campaignElems[campaign_id].CampaignEndDate = data["campaign_end_date"];
+                                        campaignElems[campaign_id].checkUpdateStatus();
+                                        campaignElems[campaign_id].CampaignDescription = data["campaign_description"];
+                                        campaignElems[campaign_id].CampaignParticipantsCount = data["campaign_participants"];
+                                        foreach (JsonObject obj in JsonValue.Parse(data["campaign_data_sources"].ToString()))
+                                            campaignElems[campaign_id].addDataSource(obj["source_id"], obj["source_name"], obj["device"], obj["data_rate"]);
+                                    });
+                                }
+                            else
+                            {
+                                logoutToolStripMenuItem.PerformClick();
+                                throw new Exception($"Bad result from server. Content: {resJson.ToString()}");
+                            }
+                        }
+                        else
+                        {
+                            Application.Exit();
+                            throw new Exception($"Bad http result, status code {result.StatusCode}");
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        try
+                        {
+                            Tools.runOnUiThread(this, () => { MessageBox.Show(this, $"Error occurred while loading the list of your campaigns.\nReason: {ex.Message}", "Failed to load the user list", MessageBoxButtons.OK, MessageBoxIcon.Error); });
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                    Thread.Sleep(60000);
                 }
-            }).Start();
+            });
+
+            campaignsListUpdateThread.Start();
         }
     }
 }

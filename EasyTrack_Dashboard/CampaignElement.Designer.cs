@@ -34,7 +34,7 @@
             this.campaignStartDateLabel = new System.Windows.Forms.Label();
             this.campaignEndDateLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.campaignDetailsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // campaignStatusLabel
@@ -101,14 +101,16 @@
             this.label3.TabIndex = 23;
             this.label3.Text = "0";
             // 
-            // button1
+            // campaignDetailsButton
             // 
-            this.button1.Location = new System.Drawing.Point(693, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(66, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "DETAILS";
-            this.button1.UseVisualStyleBackColor = true;
+            this.campaignDetailsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.campaignDetailsButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.campaignDetailsButton.Location = new System.Drawing.Point(693, 20);
+            this.campaignDetailsButton.Name = "campaignDetailsButton";
+            this.campaignDetailsButton.Size = new System.Drawing.Size(66, 23);
+            this.campaignDetailsButton.TabIndex = 24;
+            this.campaignDetailsButton.Text = "DETAILS";
+            this.campaignDetailsButton.UseVisualStyleBackColor = true;
             // 
             // CampaignElement
             // 
@@ -116,7 +118,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.campaignDetailsButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.campaignEndDateLabel);
             this.Controls.Add(this.campaignStartDateLabel);
@@ -124,9 +126,9 @@
             this.Controls.Add(this.campaignNameLabel);
             this.Controls.Add(this.campaignParticipantsCountLabel);
             this.MaximumSize = new System.Drawing.Size(3000, 66);
-            this.MinimumSize = new System.Drawing.Size(725, 60);
+            this.MinimumSize = new System.Drawing.Size(773, 58);
             this.Name = "CampaignElement";
-            this.Size = new System.Drawing.Size(800, 58);
+            this.Size = new System.Drawing.Size(771, 58);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,6 +141,6 @@
         private System.Windows.Forms.Label campaignStartDateLabel;
         private System.Windows.Forms.Label campaignEndDateLabel;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button campaignDetailsButton;
     }
 }

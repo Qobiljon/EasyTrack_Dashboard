@@ -209,6 +209,10 @@ namespace EasyTrack_Dashboard
                                             campaignsPanel.Controls.Add(topBar);
 
                                             campaignElems[campaign_id] = campaign;
+                                            campaignElems[campaign_id].addDetailsClickHandler((snd, evt) =>
+                                            {
+                                                MessageBox.Show("Opening dashboard");
+                                            });
                                         }
 
                                         campaignElems[campaign_id].CampaignId = campaign_id;

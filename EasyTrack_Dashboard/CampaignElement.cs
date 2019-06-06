@@ -71,6 +71,10 @@ namespace EasyTrack_Dashboard
             else
                 campaignStatusLabel.Image = Properties.Resources.red_dot;
         }
+        public void addDetailsClickHandler(EventHandler detailsClickHandler)
+        {
+            campaignDetailsButton.Click += detailsClickHandler;
+        }
     }
 
     public class DataSource

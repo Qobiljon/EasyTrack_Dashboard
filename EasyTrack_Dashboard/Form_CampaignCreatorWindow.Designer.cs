@@ -579,7 +579,7 @@
             this.label7.Text = "CONFIRM CAMAIGN DETAILS";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // CampaignCreatorForm
+            // Form_CampaignCreatorWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -591,7 +591,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(912, 731);
-            this.Name = "CampaignCreatorForm";
+            this.Name = "Form_CampaignCreatorWindow";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

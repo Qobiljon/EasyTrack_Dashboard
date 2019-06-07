@@ -36,6 +36,7 @@
             this.logsButton = new System.Windows.Forms.Button();
             this.userStatsButton = new System.Windows.Forms.Button();
             this.campaignsButton = new System.Windows.Forms.Button();
+            this.experimenterProfile = new EasyTrack_Dashboard.UC_Experimenter();
             this.rootTabControl = new System.Windows.Forms.TabControl();
             this.campaignsTabPage = new System.Windows.Forms.TabPage();
             this.campaignsPanel = new System.Windows.Forms.Panel();
@@ -78,7 +79,6 @@
             this.stopLiveUserTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startLiveCampaignTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopLiveCampaignTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.experimenterProfile = new EasyTrack_Dashboard.UC_Experimenter();
             this.appTopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rootSplitContaner)).BeginInit();
             this.rootSplitContaner.Panel1.SuspendLayout();
@@ -231,6 +231,20 @@
             this.campaignsButton.Text = "Campaigns";
             this.campaignsButton.UseVisualStyleBackColor = true;
             this.campaignsButton.Click += new System.EventHandler(this.campaignsButton_Click);
+            // 
+            // experimenterProfile
+            // 
+            this.experimenterProfile.BackColor = System.Drawing.Color.SteelBlue;
+            this.experimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.experimenterProfile.ExperimenterProfileType = "Experimenter";
+            this.experimenterProfile.ExperimenterUsername = "Kevin";
+            this.experimenterProfile.ForeColor = System.Drawing.Color.White;
+            this.experimenterProfile.Location = new System.Drawing.Point(0, 0);
+            this.experimenterProfile.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.experimenterProfile.Name = "experimenterProfile";
+            this.experimenterProfile.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.experimenterProfile.Size = new System.Drawing.Size(230, 59);
+            this.experimenterProfile.TabIndex = 7;
             // 
             // rootTabControl
             // 
@@ -682,20 +696,6 @@
             this.stopLiveCampaignTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.stopLiveCampaignTrackingToolStripMenuItem.Text = "Stop live campaign tracking";
             this.stopLiveCampaignTrackingToolStripMenuItem.Click += new System.EventHandler(this.stopLiveCampaignTrackingToolStripMenuItem_Click);
-            // 
-            // experimenterProfile
-            // 
-            this.experimenterProfile.BackColor = System.Drawing.Color.SteelBlue;
-            this.experimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.experimenterProfile.ExperimenterProfileType = "Experimenter";
-            this.experimenterProfile.ExperimenterUsername = "Kevin";
-            this.experimenterProfile.ForeColor = System.Drawing.Color.White;
-            this.experimenterProfile.Location = new System.Drawing.Point(0, 0);
-            this.experimenterProfile.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.experimenterProfile.Name = "experimenterProfile";
-            this.experimenterProfile.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.experimenterProfile.Size = new System.Drawing.Size(230, 59);
-            this.experimenterProfile.TabIndex = 7;
             // 
             // Form_MainWindow
             // 

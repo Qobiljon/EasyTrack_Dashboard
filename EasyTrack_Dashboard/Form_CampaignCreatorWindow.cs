@@ -181,6 +181,7 @@ namespace EasyTrack_Dashboard
                         Console.Error.WriteLine(ex.ToString());
                         Tools.runOnUiThread(this, () =>
                         {
+                            MessageBox.Show(ex.Message);
                             MessageBox.Show(this, "Failed to connect to server, plase check your internet connection!", "Connection failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             Enabled = true;
                         });

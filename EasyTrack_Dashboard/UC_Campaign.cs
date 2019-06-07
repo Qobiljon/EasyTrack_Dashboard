@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace EasyTrack_Dashboard
 {
-    public partial class CampaignElement : UserControl
+    public partial class UC_Campaign : UserControl
     {
-        public CampaignElement()
+        public UC_Campaign()
         {
             InitializeComponent();
 

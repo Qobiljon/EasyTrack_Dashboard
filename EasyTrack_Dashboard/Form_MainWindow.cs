@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace EasyTrack_Dashboard
 {
-    public partial class MainForm : Form
+    public partial class Form_MainWindow : Form
     {
-        public MainForm()
+        public Form_MainWindow()
         {
             InitializeComponent();
 
@@ -20,11 +20,11 @@ namespace EasyTrack_Dashboard
 
             logoutToolStripMenuItem.Text = $"Logout from [{experimenterProfile.ExperimenterUsername}]";
 
-            participantProfileElems = new Dictionary<string, ParticipantProfile>();
+            participantProfileElems = new Dictionary<string, UC_Participant>();
             startLiveUserTrackingToolStripMenuItem.PerformClick();
 
-            campaignElems = new Dictionary<int, CampaignElement>(); ;
-            startCampaignsListUpdateThread();
+            campaignElems = new Dictionary<int, UC_Campaign>();
+            startLiveCampaignTrackingToolStripMenuItem.PerformClick();
 
             rootTabControl.SelectedTab = campaignsTabPage;
         }
@@ -32,9 +32,9 @@ namespace EasyTrack_Dashboard
         #region Variables
         private bool moveBackToLoginForm;
         private Thread participantStatsUpdateThread;
-        private Dictionary<string, ParticipantProfile> participantProfileElems;
+        private Dictionary<string, UC_Participant> participantProfileElems;
         private Thread campaignsListUpdateThread;
-        private Dictionary<int, CampaignElement> campaignElems;
+        private Dictionary<int, UC_Campaign> campaignElems;
         #endregion
 
         private void toggleFeaturesButton_Click(object sender, EventArgs e)
@@ -98,6 +98,7 @@ namespace EasyTrack_Dashboard
                         {
                             JsonObject resJson = (JsonObject)JsonValue.Parse(await result.Content.ReadAsStringAsync());
                             if (resJson.ContainsKey("result") && (ServerResult)int.Parse(resJson["result"].ToString()) == ServerResult.OK)
+                            {
                                 foreach (JsonValue data in resJson["participants"])
                                 {
                                     string username = data["username"].ToString();
@@ -107,22 +108,22 @@ namespace EasyTrack_Dashboard
                                     {
                                         if (!participantProfileElems.ContainsKey(username))
                                         {
-                                            ParticipantProfile profile = new ParticipantProfile();
+                                            UC_Participant profile = new UC_Participant();
                                             profile.Dock = DockStyle.Top;
-                                            Control topBar = userStatsPanel.Controls[0];
-                                            userStatsPanel.Controls.RemoveAt(0);
                                             userStatsPanel.Controls.Add(profile);
-                                            userStatsPanel.Controls.Add(topBar);
 
                                             participantProfileElems[username] = profile;
                                         }
 
                                         participantProfileElems[username].ParticipantUsername = username;
                                         participantProfileElems[username].ParticipantIsActive = lastSyncMinsAgo < 360;
+                                        participantProfileElems[username].CampaignName = data["campaign_name"];
                                         participantProfileElems[username].ParticipantLastSyncTime = lastSyncMinsAgo < 2 ? "syncing now" : $"{lastSyncMinsAgo} mins ago";
                                         participantProfileElems[username].ParticipantAmountOfData = $"{(lastSyncMinsAgo > 360 ? '=' : '+')}{data["amount_of_data"].ToString()} samples";
                                     });
                                 }
+                                Tools.runOnUiThread(this, () => { userStatsPanel.Controls.Remove(topUsersDescrPanel); userStatsPanel.Controls.Add(topUsersDescrPanel); });
+                            }
                             else
                             {
                                 logoutToolStripMenuItem.PerformClick();
@@ -159,22 +160,7 @@ namespace EasyTrack_Dashboard
                 participantStatsUpdateThread.Abort();
         }
 
-        private void createNewCampaignButton_Click(object sender, EventArgs e)
-        {
-            CampaignCreatorForm form = new CampaignCreatorForm();
-            if (form.ShowDialog() == DialogResult.OK) { }
-        }
-
-        private void createNewCampaignButton_Click_1(object sender, EventArgs e)
-        {
-            CampaignCreatorForm form = new CampaignCreatorForm();
-            if (form.ShowDialog(this) == DialogResult.OK)
-            {
-
-            }
-        }
-
-        private void startCampaignsListUpdateThread()
+        private void startLiveCampaignTrackingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (campaignsListUpdateThread != null && campaignsListUpdateThread.IsAlive)
                 campaignsListUpdateThread.Abort();
@@ -194,6 +180,7 @@ namespace EasyTrack_Dashboard
                         {
                             JsonObject resJson = (JsonObject)JsonValue.Parse(await result.Content.ReadAsStringAsync());
                             if (resJson.ContainsKey("result") && (ServerResult)int.Parse(resJson["result"].ToString()) == ServerResult.OK)
+                            {
                                 foreach (JsonValue data in resJson["campaigns"])
                                 {
                                     int campaign_id = data["campaign_id"];
@@ -201,17 +188,15 @@ namespace EasyTrack_Dashboard
                                     {
                                         if (!campaignElems.ContainsKey(campaign_id))
                                         {
-                                            CampaignElement campaign = new CampaignElement();
+                                            UC_Campaign campaign = new UC_Campaign();
                                             campaign.Dock = DockStyle.Top;
-                                            Control topBar = campaignsPanel.Controls[0];
-                                            campaignsPanel.Controls.RemoveAt(0);
                                             campaignsPanel.Controls.Add(campaign);
-                                            campaignsPanel.Controls.Add(topBar);
 
                                             campaignElems[campaign_id] = campaign;
                                             campaignElems[campaign_id].addDetailsClickHandler((snd, evt) =>
                                             {
-                                                MessageBox.Show("Opening dashboard");
+                                                Form_DashboardWindow form = new Form_DashboardWindow((UC_Campaign)((Button)snd).Parent);
+                                                form.ShowDialog(this);
                                             });
                                         }
 
@@ -227,6 +212,8 @@ namespace EasyTrack_Dashboard
                                             campaignElems[campaign_id].addDataSource(obj["source_id"], obj["source_name"], obj["device"], obj["data_rate"]);
                                     });
                                 }
+                                Tools.runOnUiThread(this, () => { campaignsPanel.Controls.Remove(topCampaignDescrPanel); campaignsPanel.Controls.Add(topCampaignDescrPanel); });
+                            }
                             else
                             {
                                 logoutToolStripMenuItem.PerformClick();
@@ -255,6 +242,32 @@ namespace EasyTrack_Dashboard
             });
 
             campaignsListUpdateThread.Start();
+        }
+
+        private void stopLiveCampaignTrackingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (campaignsListUpdateThread != null && campaignsListUpdateThread.IsAlive)
+                campaignsListUpdateThread.Abort();
+        }
+
+        private void createNewCampaignButton_Click(object sender, EventArgs e)
+        {
+            Form_CampaignCreatorWindow form = new Form_CampaignCreatorWindow();
+            if (form.ShowDialog() == DialogResult.OK) { }
+        }
+
+        private void createNewCampaignButton_Click_1(object sender, EventArgs e)
+        {
+            Form_CampaignCreatorWindow form = new Form_CampaignCreatorWindow();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void feedbackLabel_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("mailto:easytracl_support@googlegroups.com");
         }
     }
 }

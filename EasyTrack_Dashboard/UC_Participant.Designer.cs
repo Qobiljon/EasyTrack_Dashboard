@@ -1,6 +1,6 @@
 ﻿namespace EasyTrack_Dashboard
 {
-    partial class ParticipantProfile
+    partial class UC_Participant
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,13 +32,14 @@
             this.labelParticipantStatus = new System.Windows.Forms.Label();
             this.labelParticipantUsername = new System.Windows.Forms.Label();
             this.labelParticipantAmountOfData = new System.Windows.Forms.Label();
+            this.campaignNameLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelParticipantLastSyncTime
             // 
             this.labelParticipantLastSyncTime.AutoSize = true;
             this.labelParticipantLastSyncTime.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.labelParticipantLastSyncTime.Location = new System.Drawing.Point(252, 25);
+            this.labelParticipantLastSyncTime.Location = new System.Drawing.Point(227, 25);
             this.labelParticipantLastSyncTime.Name = "labelParticipantLastSyncTime";
             this.labelParticipantLastSyncTime.Size = new System.Drawing.Size(96, 18);
             this.labelParticipantLastSyncTime.TabIndex = 12;
@@ -72,19 +73,30 @@
             this.labelParticipantAmountOfData.Font = new System.Drawing.Font("Consolas", 11.25F);
             this.labelParticipantAmountOfData.Image = global::EasyTrack_Dashboard.Properties.Resources.arrow_up;
             this.labelParticipantAmountOfData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelParticipantAmountOfData.Location = new System.Drawing.Point(515, 25);
+            this.labelParticipantAmountOfData.Location = new System.Drawing.Point(523, 25);
             this.labelParticipantAmountOfData.Name = "labelParticipantAmountOfData";
             this.labelParticipantAmountOfData.Size = new System.Drawing.Size(144, 18);
             this.labelParticipantAmountOfData.TabIndex = 16;
             this.labelParticipantAmountOfData.Text = "123456 samples";
             this.labelParticipantAmountOfData.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // ParticipantProfile
+            // campaignNameLabel
+            // 
+            this.campaignNameLabel.AutoSize = true;
+            this.campaignNameLabel.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.campaignNameLabel.Location = new System.Drawing.Point(391, 25);
+            this.campaignNameLabel.Name = "campaignNameLabel";
+            this.campaignNameLabel.Size = new System.Drawing.Size(96, 18);
+            this.campaignNameLabel.TabIndex = 17;
+            this.campaignNameLabel.Text = "Campaign #1";
+            // 
+            // UC_Participant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.campaignNameLabel);
             this.Controls.Add(this.labelParticipantAmountOfData);
             this.Controls.Add(this.labelParticipantStatus);
             this.Controls.Add(this.labelParticipantUsername);
@@ -92,7 +104,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaximumSize = new System.Drawing.Size(3000, 66);
             this.MinimumSize = new System.Drawing.Size(725, 60);
-            this.Name = "ParticipantProfile";
+            this.Name = "UC_Participant";
             this.Size = new System.Drawing.Size(723, 60);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -104,5 +116,6 @@
         private System.Windows.Forms.Label labelParticipantStatus;
         private System.Windows.Forms.Label labelParticipantUsername;
         private System.Windows.Forms.Label labelParticipantAmountOfData;
+        private System.Windows.Forms.Label campaignNameLabel;
     }
 }

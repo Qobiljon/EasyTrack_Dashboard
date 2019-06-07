@@ -1,6 +1,6 @@
 ﻿namespace EasyTrack_Dashboard
 {
-    partial class CampaignCreatorForm
+    partial class Form_CampaignCreatorWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -36,7 +36,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.campaignDetailsRightPanel = new System.Windows.Forms.Panel();
             this.campaignManagersPanel = new System.Windows.Forms.Panel();
-            this.currentExperimenterProfile = new EasyTrack_Dashboard.ExperimenterProfile();
+            this.currentExperimenterProfile = new EasyTrack_Dashboard.UC_Experimenter();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.addExperimenterButton = new System.Windows.Forms.Button();
@@ -649,7 +649,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel campaignManagersPanel;
-        private ExperimenterProfile currentExperimenterProfile;
+        private UC_Experimenter currentExperimenterProfile;
         private System.Windows.Forms.TabPage dataSourcesTabPage;
         private System.Windows.Forms.FlowLayoutPanel dataSourcesFlowLayoutPanel;
         private System.Windows.Forms.TabPage confirmDetailsTabPage;

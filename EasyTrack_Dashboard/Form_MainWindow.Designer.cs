@@ -1,6 +1,6 @@
 ﻿namespace EasyTrack_Dashboard
 {
-    partial class MainForm
+    partial class Form_MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -36,11 +36,10 @@
             this.logsButton = new System.Windows.Forms.Button();
             this.userStatsButton = new System.Windows.Forms.Button();
             this.campaignsButton = new System.Windows.Forms.Button();
-            this.experimenterProfile = new EasyTrack_Dashboard.ExperimenterProfile();
             this.rootTabControl = new System.Windows.Forms.TabControl();
             this.campaignsTabPage = new System.Windows.Forms.TabPage();
             this.campaignsPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.topCampaignDescrPanel = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -53,7 +52,8 @@
             this.campaignListLabel = new System.Windows.Forms.Label();
             this.userStatsTabPage = new System.Windows.Forms.TabPage();
             this.userStatsPanel = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.topUsersDescrPanel = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,10 +61,13 @@
             this.userStatsTopBarPanel = new System.Windows.Forms.Panel();
             this.userStatsLabel = new System.Windows.Forms.Label();
             this.logsTabPage = new System.Windows.Forms.TabPage();
+            this.logsPanel = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.logsTopBarPanel = new System.Windows.Forms.Panel();
             this.logsLabel = new System.Windows.Forms.Label();
-            this.logsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.feedbacksTabPage = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.feedbackLabel = new System.Windows.Forms.Label();
             this.feedbacksTopBarPanel = new System.Windows.Forms.Panel();
             this.feedbacksLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -73,6 +76,9 @@
             this.liveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startLiveUserTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopLiveUserTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startLiveCampaignTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stopLiveCampaignTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.experimenterProfile = new EasyTrack_Dashboard.UC_Experimenter();
             this.appTopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rootSplitContaner)).BeginInit();
             this.rootSplitContaner.Panel1.SuspendLayout();
@@ -81,15 +87,17 @@
             this.rootTabControl.SuspendLayout();
             this.campaignsTabPage.SuspendLayout();
             this.campaignsPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.topCampaignDescrPanel.SuspendLayout();
             this.campaignsTopBarPanel.SuspendLayout();
             this.userStatsTabPage.SuspendLayout();
             this.userStatsPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.topUsersDescrPanel.SuspendLayout();
             this.userStatsTopBarPanel.SuspendLayout();
             this.logsTabPage.SuspendLayout();
+            this.logsPanel.SuspendLayout();
             this.logsTopBarPanel.SuspendLayout();
             this.feedbacksTabPage.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.feedbacksTopBarPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -142,6 +150,7 @@
             // 
             // rootSplitContaner.Panel1
             // 
+            this.rootSplitContaner.Panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.rootSplitContaner.Panel1.Controls.Add(this.feedbacksButton);
             this.rootSplitContaner.Panel1.Controls.Add(this.logsButton);
             this.rootSplitContaner.Panel1.Controls.Add(this.userStatsButton);
@@ -166,7 +175,7 @@
             this.feedbacksButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.feedbacksButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.feedbacksButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.feedbacksButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.feedbacksButton.ForeColor = System.Drawing.Color.White;
             this.feedbacksButton.Location = new System.Drawing.Point(14, 300);
             this.feedbacksButton.Name = "feedbacksButton";
             this.feedbacksButton.Size = new System.Drawing.Size(200, 46);
@@ -182,7 +191,7 @@
             this.logsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.logsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.logsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.logsButton.ForeColor = System.Drawing.Color.White;
             this.logsButton.Location = new System.Drawing.Point(14, 235);
             this.logsButton.Name = "logsButton";
             this.logsButton.Size = new System.Drawing.Size(200, 46);
@@ -198,7 +207,7 @@
             this.userStatsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.userStatsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userStatsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.userStatsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.userStatsButton.ForeColor = System.Drawing.Color.White;
             this.userStatsButton.Location = new System.Drawing.Point(14, 169);
             this.userStatsButton.Name = "userStatsButton";
             this.userStatsButton.Size = new System.Drawing.Size(200, 46);
@@ -214,7 +223,7 @@
             this.campaignsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.campaignsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.campaignsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.campaignsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.campaignsButton.ForeColor = System.Drawing.Color.White;
             this.campaignsButton.Location = new System.Drawing.Point(14, 103);
             this.campaignsButton.Name = "campaignsButton";
             this.campaignsButton.Size = new System.Drawing.Size(200, 46);
@@ -222,19 +231,6 @@
             this.campaignsButton.Text = "Campaigns";
             this.campaignsButton.UseVisualStyleBackColor = true;
             this.campaignsButton.Click += new System.EventHandler(this.campaignsButton_Click);
-            // 
-            // experimenterProfile
-            // 
-            this.experimenterProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.experimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.experimenterProfile.ExperimenterProfileType = "Experimenter";
-            this.experimenterProfile.ExperimenterUsername = "Kevin";
-            this.experimenterProfile.Location = new System.Drawing.Point(0, 0);
-            this.experimenterProfile.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.experimenterProfile.Name = "experimenterProfile";
-            this.experimenterProfile.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.experimenterProfile.Size = new System.Drawing.Size(230, 59);
-            this.experimenterProfile.TabIndex = 7;
             // 
             // rootTabControl
             // 
@@ -268,7 +264,7 @@
             // campaignsPanel
             // 
             this.campaignsPanel.BackColor = System.Drawing.Color.White;
-            this.campaignsPanel.Controls.Add(this.panel2);
+            this.campaignsPanel.Controls.Add(this.topCampaignDescrPanel);
             this.campaignsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.campaignsPanel.Location = new System.Drawing.Point(3, 37);
             this.campaignsPanel.Name = "campaignsPanel";
@@ -276,21 +272,21 @@
             this.campaignsPanel.Size = new System.Drawing.Size(803, 427);
             this.campaignsPanel.TabIndex = 4;
             // 
-            // panel2
+            // topCampaignDescrPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(10, 10);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(783, 13);
-            this.panel2.TabIndex = 8;
+            this.topCampaignDescrPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.topCampaignDescrPanel.Controls.Add(this.label11);
+            this.topCampaignDescrPanel.Controls.Add(this.label10);
+            this.topCampaignDescrPanel.Controls.Add(this.label9);
+            this.topCampaignDescrPanel.Controls.Add(this.label5);
+            this.topCampaignDescrPanel.Controls.Add(this.label6);
+            this.topCampaignDescrPanel.Controls.Add(this.label7);
+            this.topCampaignDescrPanel.Controls.Add(this.label8);
+            this.topCampaignDescrPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topCampaignDescrPanel.Location = new System.Drawing.Point(10, 10);
+            this.topCampaignDescrPanel.Name = "topCampaignDescrPanel";
+            this.topCampaignDescrPanel.Size = new System.Drawing.Size(783, 13);
+            this.topCampaignDescrPanel.TabIndex = 8;
             // 
             // label11
             // 
@@ -414,7 +410,7 @@
             // userStatsPanel
             // 
             this.userStatsPanel.BackColor = System.Drawing.Color.White;
-            this.userStatsPanel.Controls.Add(this.panel1);
+            this.userStatsPanel.Controls.Add(this.topUsersDescrPanel);
             this.userStatsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userStatsPanel.Location = new System.Drawing.Point(3, 33);
             this.userStatsPanel.Name = "userStatsPanel";
@@ -422,24 +418,34 @@
             this.userStatsPanel.Size = new System.Drawing.Size(803, 431);
             this.userStatsPanel.TabIndex = 0;
             // 
-            // panel1
+            // topUsersDescrPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(10, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(783, 13);
-            this.panel1.TabIndex = 5;
+            this.topUsersDescrPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.topUsersDescrPanel.Controls.Add(this.label12);
+            this.topUsersDescrPanel.Controls.Add(this.label4);
+            this.topUsersDescrPanel.Controls.Add(this.label3);
+            this.topUsersDescrPanel.Controls.Add(this.label2);
+            this.topUsersDescrPanel.Controls.Add(this.label1);
+            this.topUsersDescrPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topUsersDescrPanel.Location = new System.Drawing.Point(10, 10);
+            this.topUsersDescrPanel.Name = "topUsersDescrPanel";
+            this.topUsersDescrPanel.Size = new System.Drawing.Size(783, 13);
+            this.topUsersDescrPanel.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(410, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(63, 12);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Campaign";
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(582, 0);
+            this.label4.Location = new System.Drawing.Point(596, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 12);
             this.label4.TabIndex = 3;
@@ -448,7 +454,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(245, 1);
+            this.label3.Location = new System.Drawing.Point(227, 1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 12);
             this.label3.TabIndex = 2;
@@ -496,14 +502,36 @@
             // logsTabPage
             // 
             this.logsTabPage.BackColor = System.Drawing.Color.SteelBlue;
+            this.logsTabPage.Controls.Add(this.logsPanel);
             this.logsTabPage.Controls.Add(this.logsTopBarPanel);
-            this.logsTabPage.Controls.Add(this.logsFlowLayoutPanel);
             this.logsTabPage.Location = new System.Drawing.Point(4, 5);
             this.logsTabPage.Name = "logsTabPage";
             this.logsTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.logsTabPage.Size = new System.Drawing.Size(809, 467);
             this.logsTabPage.TabIndex = 2;
             this.logsTabPage.Text = "tabPage1";
+            // 
+            // logsPanel
+            // 
+            this.logsPanel.BackColor = System.Drawing.Color.White;
+            this.logsPanel.Controls.Add(this.label13);
+            this.logsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.logsPanel.Location = new System.Drawing.Point(3, 33);
+            this.logsPanel.Name = "logsPanel";
+            this.logsPanel.Size = new System.Drawing.Size(803, 431);
+            this.logsPanel.TabIndex = 8;
+            // 
+            // label13
+            // 
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label13.ForeColor = System.Drawing.Color.DimGray;
+            this.label13.Location = new System.Drawing.Point(0, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(803, 431);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "[ EMPTY LIST ]";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // logsTopBarPanel
             // 
@@ -522,24 +550,14 @@
             this.logsLabel.ForeColor = System.Drawing.Color.White;
             this.logsLabel.Location = new System.Drawing.Point(0, 0);
             this.logsLabel.Name = "logsLabel";
-            this.logsLabel.Size = new System.Drawing.Size(74, 25);
+            this.logsLabel.Size = new System.Drawing.Size(192, 25);
             this.logsLabel.TabIndex = 0;
-            this.logsLabel.Text = "LOGS";
-            // 
-            // logsFlowLayoutPanel
-            // 
-            this.logsFlowLayoutPanel.BackColor = System.Drawing.Color.White;
-            this.logsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logsFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.logsFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
-            this.logsFlowLayoutPanel.Name = "logsFlowLayoutPanel";
-            this.logsFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.logsFlowLayoutPanel.Size = new System.Drawing.Size(803, 461);
-            this.logsFlowLayoutPanel.TabIndex = 6;
+            this.logsLabel.Text = "ANOMALY LOGS";
             // 
             // feedbacksTabPage
             // 
             this.feedbacksTabPage.BackColor = System.Drawing.Color.SteelBlue;
+            this.feedbacksTabPage.Controls.Add(this.panel3);
             this.feedbacksTabPage.Controls.Add(this.feedbacksTopBarPanel);
             this.feedbacksTabPage.Location = new System.Drawing.Point(4, 5);
             this.feedbacksTabPage.Name = "feedbacksTabPage";
@@ -547,6 +565,32 @@
             this.feedbacksTabPage.Size = new System.Drawing.Size(809, 467);
             this.feedbacksTabPage.TabIndex = 3;
             this.feedbacksTabPage.Text = "tabPage2";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Controls.Add(this.feedbackLabel);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 33);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(803, 431);
+            this.panel3.TabIndex = 8;
+            // 
+            // feedbackLabel
+            // 
+            this.feedbackLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.feedbackLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.feedbackLabel.Font = new System.Drawing.Font("Calibri", 15.75F);
+            this.feedbackLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.feedbackLabel.Location = new System.Drawing.Point(0, 0);
+            this.feedbackLabel.Name = "feedbackLabel";
+            this.feedbackLabel.Size = new System.Drawing.Size(803, 431);
+            this.feedbackLabel.TabIndex = 0;
+            this.feedbackLabel.Text = "If you have any suggestion or concert about EasyTrack platform,\r\nplease don\'t hes" +
+    "itate to directly contact with the EasyTrack support\r\nteam via email: easytracl_" +
+    "support@googlegroups.com";
+            this.feedbackLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.feedbackLabel.Click += new System.EventHandler(this.feedbackLabel_Click);
             // 
             // feedbacksTopBarPanel
             // 
@@ -586,6 +630,7 @@
             this.userToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.userToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logoutToolStripMenuItem});
+            this.userToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.userToolStripMenuItem.Name = "userToolStripMenuItem";
             this.userToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.userToolStripMenuItem.Text = "User";
@@ -602,26 +647,57 @@
             // 
             this.liveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startLiveUserTrackingToolStripMenuItem,
-            this.stopLiveUserTrackingToolStripMenuItem});
+            this.stopLiveUserTrackingToolStripMenuItem,
+            this.startLiveCampaignTrackingToolStripMenuItem,
+            this.stopLiveCampaignTrackingToolStripMenuItem});
+            this.liveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.liveToolStripMenuItem.Name = "liveToolStripMenuItem";
-            this.liveToolStripMenuItem.Size = new System.Drawing.Size(111, 20);
-            this.liveToolStripMenuItem.Text = "Live user tracking";
+            this.liveToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.liveToolStripMenuItem.Text = "Live tracking";
             // 
             // startLiveUserTrackingToolStripMenuItem
             // 
             this.startLiveUserTrackingToolStripMenuItem.Name = "startLiveUserTrackingToolStripMenuItem";
-            this.startLiveUserTrackingToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.startLiveUserTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.startLiveUserTrackingToolStripMenuItem.Text = "Start live user tracking";
             this.startLiveUserTrackingToolStripMenuItem.Click += new System.EventHandler(this.startLiveUserTrackingToolStripMenuItem_Click);
             // 
             // stopLiveUserTrackingToolStripMenuItem
             // 
             this.stopLiveUserTrackingToolStripMenuItem.Name = "stopLiveUserTrackingToolStripMenuItem";
-            this.stopLiveUserTrackingToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.stopLiveUserTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.stopLiveUserTrackingToolStripMenuItem.Text = "Stop live user tracking";
             this.stopLiveUserTrackingToolStripMenuItem.Click += new System.EventHandler(this.stopLiveUserTrackingToolStripMenuItem_Click);
             // 
-            // MainForm
+            // startLiveCampaignTrackingToolStripMenuItem
+            // 
+            this.startLiveCampaignTrackingToolStripMenuItem.Name = "startLiveCampaignTrackingToolStripMenuItem";
+            this.startLiveCampaignTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.startLiveCampaignTrackingToolStripMenuItem.Text = "Start live campaign tracking";
+            this.startLiveCampaignTrackingToolStripMenuItem.Click += new System.EventHandler(this.startLiveCampaignTrackingToolStripMenuItem_Click);
+            // 
+            // stopLiveCampaignTrackingToolStripMenuItem
+            // 
+            this.stopLiveCampaignTrackingToolStripMenuItem.Name = "stopLiveCampaignTrackingToolStripMenuItem";
+            this.stopLiveCampaignTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.stopLiveCampaignTrackingToolStripMenuItem.Text = "Stop live campaign tracking";
+            this.stopLiveCampaignTrackingToolStripMenuItem.Click += new System.EventHandler(this.stopLiveCampaignTrackingToolStripMenuItem_Click);
+            // 
+            // experimenterProfile
+            // 
+            this.experimenterProfile.BackColor = System.Drawing.Color.SteelBlue;
+            this.experimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.experimenterProfile.ExperimenterProfileType = "Experimenter";
+            this.experimenterProfile.ExperimenterUsername = "Kevin";
+            this.experimenterProfile.ForeColor = System.Drawing.Color.White;
+            this.experimenterProfile.Location = new System.Drawing.Point(0, 0);
+            this.experimenterProfile.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.experimenterProfile.Name = "experimenterProfile";
+            this.experimenterProfile.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.experimenterProfile.Size = new System.Drawing.Size(230, 59);
+            this.experimenterProfile.TabIndex = 7;
+            // 
+            // Form_MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -632,7 +708,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1064, 580);
-            this.Name = "MainForm";
+            this.Name = "Form_MainWindow";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EasyTrack: Large-scale Mobile User Study Monitoring Platform";
@@ -646,20 +722,22 @@
             this.rootTabControl.ResumeLayout(false);
             this.campaignsTabPage.ResumeLayout(false);
             this.campaignsPanel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.topCampaignDescrPanel.ResumeLayout(false);
+            this.topCampaignDescrPanel.PerformLayout();
             this.campaignsTopBarPanel.ResumeLayout(false);
             this.campaignsTopBarPanel.PerformLayout();
             this.userStatsTabPage.ResumeLayout(false);
             this.userStatsPanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.topUsersDescrPanel.ResumeLayout(false);
+            this.topUsersDescrPanel.PerformLayout();
             this.userStatsTopBarPanel.ResumeLayout(false);
             this.userStatsTopBarPanel.PerformLayout();
             this.logsTabPage.ResumeLayout(false);
+            this.logsPanel.ResumeLayout(false);
             this.logsTopBarPanel.ResumeLayout(false);
             this.logsTopBarPanel.PerformLayout();
             this.feedbacksTabPage.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.feedbacksTopBarPanel.ResumeLayout(false);
             this.feedbacksTopBarPanel.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -681,7 +759,7 @@
         private System.Windows.Forms.TabPage feedbacksTabPage;
         private System.Windows.Forms.Label campaignListLabel;
         private System.Windows.Forms.Panel campaignsTopBarPanel;
-        private ExperimenterProfile experimenterProfile;
+        private UC_Experimenter experimenterProfile;
         private System.Windows.Forms.Button campaignsButton;
         private System.Windows.Forms.Button userStatsButton;
         private System.Windows.Forms.Button logsButton;
@@ -690,7 +768,6 @@
         private System.Windows.Forms.Label userStatsLabel;
         private System.Windows.Forms.Panel logsTopBarPanel;
         private System.Windows.Forms.Label logsLabel;
-        private System.Windows.Forms.FlowLayoutPanel logsFlowLayoutPanel;
         private System.Windows.Forms.Panel feedbacksTopBarPanel;
         private System.Windows.Forms.Label feedbacksLabel;
         private System.Windows.Forms.Button createNewCampaignButton;
@@ -701,13 +778,13 @@
         private System.Windows.Forms.ToolStripMenuItem startLiveUserTrackingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopLiveUserTrackingToolStripMenuItem;
         private System.Windows.Forms.Panel userStatsPanel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel topUsersDescrPanel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel campaignsPanel;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel topCampaignDescrPanel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -715,6 +792,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label feedbackLabel;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel logsPanel;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ToolStripMenuItem startLiveCampaignTrackingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stopLiveCampaignTrackingToolStripMenuItem;
     }
 }
 

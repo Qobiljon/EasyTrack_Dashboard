@@ -7,9 +7,9 @@ using System.Net.Http;
 
 namespace EasyTrack_Dashboard
 {
-    public partial class AuthenticationForm : Form
+    public partial class Form_AuthenticationWindow : Form
     {
-        public AuthenticationForm()
+        public Form_AuthenticationWindow()
         {
             InitializeComponent();
 

@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace EasyTrack_Dashboard
 {
-    public partial class DataSourceElement : UserControl
+    public partial class UC_DataSource : UserControl
     {
-        public DataSourceElement()
+        public UC_DataSource()
         {
             InitializeComponent();
         }

@@ -2,9 +2,9 @@
 
 namespace EasyTrack_Dashboard
 {
-    public partial class ExperimenterProfile : UserControl
+    public partial class UC_Experimenter : UserControl
     {
-        public ExperimenterProfile()
+        public UC_Experimenter()
         {
             InitializeComponent();
         }

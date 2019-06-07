@@ -1,6 +1,6 @@
 ﻿namespace EasyTrack_Dashboard
 {
-    partial class CampaignElement
+    partial class UC_Campaign
     {
         /// <summary> 
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace EasyTrack_Dashboard
 {
-    partial class DataSourceElement
+    partial class UC_DataSource
     {
         /// <summary> 
         /// Required designer variable.

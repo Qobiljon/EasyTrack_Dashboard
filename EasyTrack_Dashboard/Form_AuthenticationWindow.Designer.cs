@@ -1,6 +1,6 @@
 ﻿namespace EasyTrack_Dashboard
 {
-    partial class AuthenticationForm
+    partial class Form_AuthenticationWindow
     {
         /// <summary>
         /// Required designer variable.

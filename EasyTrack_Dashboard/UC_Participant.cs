@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 namespace EasyTrack_Dashboard
 {
-    public partial class ParticipantProfile : UserControl
+    public partial class UC_Participant : UserControl
     {
-        public ParticipantProfile()
+        public UC_Participant()
         {
             InitializeComponent();
         }
@@ -25,6 +25,7 @@ namespace EasyTrack_Dashboard
         }
         public string ParticipantUsername { set { labelParticipantUsername.Text = value; } get { return labelParticipantUsername.Text; } }
         public string ParticipantLastSyncTime { set { labelParticipantLastSyncTime.Text = value; } get { return labelParticipantUsername.Text; } }
+        public string CampaignName { set { campaignNameLabel.Text = value; } get { return campaignNameLabel.Text; } }
         public string ParticipantAmountOfData
         {
             set

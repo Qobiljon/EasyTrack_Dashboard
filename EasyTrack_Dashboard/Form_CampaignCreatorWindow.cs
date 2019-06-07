@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace EasyTrack_Dashboard
 {
-    public partial class CampaignCreatorForm : Form
+    public partial class Form_CampaignCreatorWindow : Form
     {
-        public CampaignCreatorForm()
+        public Form_CampaignCreatorWindow()
         {
             InitializeComponent();
 
@@ -48,7 +48,7 @@ namespace EasyTrack_Dashboard
                             {
                                 Tools.runOnUiThread(this, () =>
                                 {
-                                    DataSourceElement elem = new DataSourceElement();
+                                    UC_DataSource elem = new UC_DataSource();
                                     elem.DeviceName = dataSrc["device"];
                                     elem.SourceName = dataSrc["source_name"];
                                     elem.DataRate = dataSrc["data_rate"];
@@ -89,7 +89,7 @@ namespace EasyTrack_Dashboard
                 confirmDataSourcesLabel.Text = "";
                 for (int n = 0, count = 0; n < dataSourcesFlowLayoutPanel.Controls.Count; n++)
                 {
-                    DataSourceElement elem = (DataSourceElement)dataSourcesFlowLayoutPanel.Controls[n];
+                    UC_DataSource elem = (UC_DataSource)dataSourcesFlowLayoutPanel.Controls[n];
                     if (!elem.IsSelected)
                         continue;
                     if (count == 4)
@@ -113,7 +113,7 @@ namespace EasyTrack_Dashboard
 
                         for (int n = 0; n < dataSourcesFlowLayoutPanel.Controls.Count; n++)
                         {
-                            DataSourceElement elem = (DataSourceElement)dataSourcesFlowLayoutPanel.Controls[n];
+                            UC_DataSource elem = (UC_DataSource)dataSourcesFlowLayoutPanel.Controls[n];
                             if (!elem.IsSelected)
                                 continue;
 

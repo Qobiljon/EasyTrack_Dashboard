@@ -18,7 +18,7 @@ namespace EasyTrack_Dashboard
                 Form form = null;
                 do
                 {
-                    form = form == null || form is AuthenticationForm ? (Form)new MainForm() : new AuthenticationForm();
+                    form = form == null || form is Form_AuthenticationWindow ? (Form)new Form_MainWindow() : new Form_AuthenticationWindow();
                     Application.Run(form);
                 } while (form.DialogResult == DialogResult.OK);
             }
@@ -27,7 +27,7 @@ namespace EasyTrack_Dashboard
                 Form form = null;
                 do
                 {
-                    form = form == null || form is MainForm ? (Form)new AuthenticationForm() : new MainForm();
+                    form = form == null || form is Form_MainWindow ? (Form)new Form_AuthenticationWindow() : new Form_MainWindow();
                     Application.Run(form);
                 } while (form.DialogResult == DialogResult.OK);
             }

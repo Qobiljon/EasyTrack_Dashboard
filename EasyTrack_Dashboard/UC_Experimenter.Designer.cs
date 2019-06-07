@@ -1,6 +1,6 @@
 ﻿namespace EasyTrack_Dashboard
 {
-    partial class ExperimenterProfile
+    partial class UC_Experimenter
     {
         /// <summary> 
         /// Required designer variable.

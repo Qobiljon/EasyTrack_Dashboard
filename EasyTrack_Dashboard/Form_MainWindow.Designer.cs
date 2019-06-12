@@ -39,7 +39,7 @@
             this.experimenterProfile = new EasyTrack_Dashboard.UC_Experimenter();
             this.rootTabControl = new System.Windows.Forms.TabControl();
             this.campaignsTabPage = new System.Windows.Forms.TabPage();
-            this.campaignsPanel = new System.Windows.Forms.Panel();
+            this.campaignStatsPanel = new System.Windows.Forms.Panel();
             this.topCampaignDescrPanel = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -74,11 +74,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.liveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startLiveUserTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopLiveUserTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startLiveCampaignTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopLiveCampaignTrackingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.appTopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rootSplitContaner)).BeginInit();
             this.rootSplitContaner.Panel1.SuspendLayout();
@@ -86,7 +81,7 @@
             this.rootSplitContaner.SuspendLayout();
             this.rootTabControl.SuspendLayout();
             this.campaignsTabPage.SuspendLayout();
-            this.campaignsPanel.SuspendLayout();
+            this.campaignStatsPanel.SuspendLayout();
             this.topCampaignDescrPanel.SuspendLayout();
             this.campaignsTopBarPanel.SuspendLayout();
             this.userStatsTabPage.SuspendLayout();
@@ -265,7 +260,7 @@
             // campaignsTabPage
             // 
             this.campaignsTabPage.BackColor = System.Drawing.Color.SteelBlue;
-            this.campaignsTabPage.Controls.Add(this.campaignsPanel);
+            this.campaignsTabPage.Controls.Add(this.campaignStatsPanel);
             this.campaignsTabPage.Controls.Add(this.campaignsTopBarPanel);
             this.campaignsTabPage.Location = new System.Drawing.Point(4, 5);
             this.campaignsTabPage.Margin = new System.Windows.Forms.Padding(0);
@@ -275,16 +270,16 @@
             this.campaignsTabPage.TabIndex = 0;
             this.campaignsTabPage.Text = "tabPage1";
             // 
-            // campaignsPanel
+            // campaignStatsPanel
             // 
-            this.campaignsPanel.BackColor = System.Drawing.Color.White;
-            this.campaignsPanel.Controls.Add(this.topCampaignDescrPanel);
-            this.campaignsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.campaignsPanel.Location = new System.Drawing.Point(3, 37);
-            this.campaignsPanel.Name = "campaignsPanel";
-            this.campaignsPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.campaignsPanel.Size = new System.Drawing.Size(803, 427);
-            this.campaignsPanel.TabIndex = 4;
+            this.campaignStatsPanel.BackColor = System.Drawing.Color.White;
+            this.campaignStatsPanel.Controls.Add(this.topCampaignDescrPanel);
+            this.campaignStatsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.campaignStatsPanel.Location = new System.Drawing.Point(3, 37);
+            this.campaignStatsPanel.Name = "campaignStatsPanel";
+            this.campaignStatsPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.campaignStatsPanel.Size = new System.Drawing.Size(803, 427);
+            this.campaignStatsPanel.TabIndex = 4;
             // 
             // topCampaignDescrPanel
             // 
@@ -631,8 +626,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.SteelBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.userToolStripMenuItem,
-            this.liveToolStripMenuItem});
+            this.userToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1048, 24);
@@ -653,49 +647,9 @@
             // 
             this.logoutToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // liveToolStripMenuItem
-            // 
-            this.liveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startLiveUserTrackingToolStripMenuItem,
-            this.stopLiveUserTrackingToolStripMenuItem,
-            this.startLiveCampaignTrackingToolStripMenuItem,
-            this.stopLiveCampaignTrackingToolStripMenuItem});
-            this.liveToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.liveToolStripMenuItem.Name = "liveToolStripMenuItem";
-            this.liveToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
-            this.liveToolStripMenuItem.Text = "Live tracking";
-            // 
-            // startLiveUserTrackingToolStripMenuItem
-            // 
-            this.startLiveUserTrackingToolStripMenuItem.Name = "startLiveUserTrackingToolStripMenuItem";
-            this.startLiveUserTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.startLiveUserTrackingToolStripMenuItem.Text = "Start live user tracking";
-            this.startLiveUserTrackingToolStripMenuItem.Click += new System.EventHandler(this.startLiveUserTrackingToolStripMenuItem_Click);
-            // 
-            // stopLiveUserTrackingToolStripMenuItem
-            // 
-            this.stopLiveUserTrackingToolStripMenuItem.Name = "stopLiveUserTrackingToolStripMenuItem";
-            this.stopLiveUserTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.stopLiveUserTrackingToolStripMenuItem.Text = "Stop live user tracking";
-            this.stopLiveUserTrackingToolStripMenuItem.Click += new System.EventHandler(this.stopLiveUserTrackingToolStripMenuItem_Click);
-            // 
-            // startLiveCampaignTrackingToolStripMenuItem
-            // 
-            this.startLiveCampaignTrackingToolStripMenuItem.Name = "startLiveCampaignTrackingToolStripMenuItem";
-            this.startLiveCampaignTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.startLiveCampaignTrackingToolStripMenuItem.Text = "Start live campaign tracking";
-            this.startLiveCampaignTrackingToolStripMenuItem.Click += new System.EventHandler(this.startLiveCampaignTrackingToolStripMenuItem_Click);
-            // 
-            // stopLiveCampaignTrackingToolStripMenuItem
-            // 
-            this.stopLiveCampaignTrackingToolStripMenuItem.Name = "stopLiveCampaignTrackingToolStripMenuItem";
-            this.stopLiveCampaignTrackingToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
-            this.stopLiveCampaignTrackingToolStripMenuItem.Text = "Stop live campaign tracking";
-            this.stopLiveCampaignTrackingToolStripMenuItem.Click += new System.EventHandler(this.stopLiveCampaignTrackingToolStripMenuItem_Click);
             // 
             // Form_MainWindow
             // 
@@ -712,7 +666,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EasyTrack: Large-scale Mobile User Study Monitoring Platform";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.appTopBarPanel.ResumeLayout(false);
             this.appTopBarPanel.PerformLayout();
             this.rootSplitContaner.Panel1.ResumeLayout(false);
@@ -721,7 +674,7 @@
             this.rootSplitContaner.ResumeLayout(false);
             this.rootTabControl.ResumeLayout(false);
             this.campaignsTabPage.ResumeLayout(false);
-            this.campaignsPanel.ResumeLayout(false);
+            this.campaignStatsPanel.ResumeLayout(false);
             this.topCampaignDescrPanel.ResumeLayout(false);
             this.topCampaignDescrPanel.PerformLayout();
             this.campaignsTopBarPanel.ResumeLayout(false);
@@ -774,16 +727,13 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem liveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startLiveUserTrackingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stopLiveUserTrackingToolStripMenuItem;
         private System.Windows.Forms.Panel userStatsPanel;
         private System.Windows.Forms.Panel topUsersDescrPanel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel campaignsPanel;
+        private System.Windows.Forms.Panel campaignStatsPanel;
         private System.Windows.Forms.Panel topCampaignDescrPanel;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
@@ -797,8 +747,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel logsPanel;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ToolStripMenuItem startLiveCampaignTrackingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stopLiveCampaignTrackingToolStripMenuItem;
     }
 }
 

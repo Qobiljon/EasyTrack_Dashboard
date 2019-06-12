@@ -86,7 +86,7 @@ namespace EasyTrack_Dashboard
                 {
                     try
                     {
-                        HttpResponseMessage result = await Tools.post(Tools.API_GET_RECENT_CAMPAIGN_SUMMARY, new Dictionary<string, string>
+                        HttpResponseMessage result = await Tools.post(Tools.API_GET_CAMPAIGN_DQ_VALUES, new Dictionary<string, string>
                         {
                             { "username", Properties.Settings.Default.Username },
                             { "password", Properties.Settings.Default.Password },
@@ -98,19 +98,25 @@ namespace EasyTrack_Dashboard
                             if (resJson.ContainsKey("result") && (ServerResult)int.Parse(resJson["result"].ToString()) == ServerResult.OK)
                             {
                                 Dictionary<long, float> series = new Dictionary<long, float>();
+
+                                long time = -360;
                                 foreach (dynamic obj in resJson["last_6h_completeness"])
-                                    series.Add(long.Parse(obj.Key), (float)obj.Value);
+                                {
+                                    series.Add(time, (float)obj.Value);
+                                    time += 10;
+                                    //series.Add(long.Parse(obj.Key), (float)obj.Value);
+                                }
 
                                 Tools.runOnUiThread(this, () =>
                                 {
                                     DataTable dt = new DataTable();
-                                    dt.Columns.Add("Time", typeof(double));
+                                    dt.Columns.Add("Time (mins ago)", typeof(double));
                                     dt.Columns.Add("Completeness", typeof(double));
 
                                     foreach (long key in series.Keys)
                                         dt.Rows.Add(key, series[key]);
                                     chart1.DataSource = dt;
-                                    chart1.Series["Completeness"].XValueMember = "Time";
+                                    chart1.Series["Completeness"].XValueMember = "Time (mins ago)";
                                     chart1.Series["Completeness"].YValueMembers = "Completeness";
                                     chart1.Series["Completeness"].ChartType = SeriesChartType.Line;
                                     chart1.ChartAreas[0].AxisY.LabelStyle.Format = "";

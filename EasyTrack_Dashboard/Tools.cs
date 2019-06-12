@@ -9,6 +9,9 @@ namespace EasyTrack_Dashboard
     class Tools
     {
         #region Constants
+        internal const string SERVER_URL = "http://165.246.43.162:36012";
+        // internal const string SERVER_URL = "http://165.246.43.163:9876";
+
         internal const string API_REGISTER = "register";
         internal const string API_UNREGISTER = "unregister";
         internal const string API_AUTHENTICATE = "authenticate";
@@ -17,16 +20,15 @@ namespace EasyTrack_Dashboard
         internal const string API_NOTIFY = "notify";
         internal const string API_GET_PARTICIPANT_LIST = "get_participant_list";
         internal const string API_GET_UNIQUE_DATA_SOURCES = "get_unique_data_sources";
-        internal static string API_CREATE_CAMPAIGN = "create_campaign";
-        internal static string API_GET_CAMPAIGNS = "get_campaigns";
-        internal static string API_GET_RECENT_CAMPAIGN_SUMMARY = "get_recent_campaign_summary";
+        internal const string API_CREATE_CAMPAIGN = "create_campaign";
+        internal const string API_GET_CAMPAIGNS = "get_campaigns";
+        internal const string API_GET_CAMPAIGN_DQ_VALUES = "handle_get_campaign_dq_values";
+        internal const string API_CHECK_PARTICIPANT_AVAILABILITY = "check_participant_availability";
+        internal const string API_DOWNLOAD_DEVICE_ICON = "device_image";
         #endregion
 
         internal async static Task<HttpResponseMessage> post(string api, Dictionary<string, string> body, byte[] fileContent = null)
         {
-            const string SERVER_URL = "http://165.246.43.162:36012";
-            // const string SERVER_URL = "http://165.246.43.163:9876";
-
             if (fileContent == null)
                 using (HttpClient client = new HttpClient())
                     return await client.PostAsync($"{SERVER_URL}/{api}", new FormUrlEncodedContent(body));

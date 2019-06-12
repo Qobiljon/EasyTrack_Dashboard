@@ -36,7 +36,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.campaignDetailsRightPanel = new System.Windows.Forms.Panel();
             this.campaignManagersPanel = new System.Windows.Forms.Panel();
-            this.currentExperimenterProfile = new EasyTrack_Dashboard.UC_Experimenter();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.addExperimenterButton = new System.Windows.Forms.Button();
@@ -57,6 +56,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataSourcesTabPage = new System.Windows.Forms.TabPage();
             this.dataSourcesFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.recruitingTabPage = new System.Windows.Forms.TabPage();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.newParticipantUsernameTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.addParticipantButton = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.participantsListBox = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.confirmDetailsTabPage = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.confirmDataSourcesLabel = new System.Windows.Forms.Label();
@@ -68,6 +75,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.currentExperimenterProfile = new EasyTrack_Dashboard.UC_Experimenter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.rootTabControl.SuspendLayout();
@@ -82,6 +90,9 @@
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.dataSourcesTabPage.SuspendLayout();
+            this.recruitingTabPage.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.confirmDetailsTabPage.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -93,14 +104,14 @@
             this.panel1.Location = new System.Drawing.Point(0, 647);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1366, 45);
+            this.panel1.Size = new System.Drawing.Size(1456, 45);
             this.panel1.TabIndex = 3;
             // 
             // proceedButton
             // 
             this.proceedButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.proceedButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.proceedButton.Location = new System.Drawing.Point(1113, 0);
+            this.proceedButton.Location = new System.Drawing.Point(1203, 0);
             this.proceedButton.Name = "proceedButton";
             this.proceedButton.Size = new System.Drawing.Size(253, 45);
             this.proceedButton.TabIndex = 0;
@@ -114,7 +125,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1366, 647);
+            this.panel2.Size = new System.Drawing.Size(1456, 647);
             this.panel2.TabIndex = 4;
             // 
             // rootTabControl
@@ -122,6 +133,7 @@
             this.rootTabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.rootTabControl.Controls.Add(this.campaignDetailsTabPage);
             this.rootTabControl.Controls.Add(this.dataSourcesTabPage);
+            this.rootTabControl.Controls.Add(this.recruitingTabPage);
             this.rootTabControl.Controls.Add(this.confirmDetailsTabPage);
             this.rootTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rootTabControl.ItemSize = new System.Drawing.Size(0, 1);
@@ -129,7 +141,7 @@
             this.rootTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.rootTabControl.Name = "rootTabControl";
             this.rootTabControl.SelectedIndex = 0;
-            this.rootTabControl.Size = new System.Drawing.Size(1366, 647);
+            this.rootTabControl.Size = new System.Drawing.Size(1456, 647);
             this.rootTabControl.TabIndex = 3;
             // 
             // campaignDetailsTabPage
@@ -140,7 +152,7 @@
             this.campaignDetailsTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.campaignDetailsTabPage.Name = "campaignDetailsTabPage";
             this.campaignDetailsTabPage.Padding = new System.Windows.Forms.Padding(4);
-            this.campaignDetailsTabPage.Size = new System.Drawing.Size(1358, 638);
+            this.campaignDetailsTabPage.Size = new System.Drawing.Size(1448, 638);
             this.campaignDetailsTabPage.TabIndex = 0;
             this.campaignDetailsTabPage.Text = "Campaign Details TabPage";
             this.campaignDetailsTabPage.UseVisualStyleBackColor = true;
@@ -158,7 +170,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1350, 584);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1440, 584);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // campaignDetailsRightPanel
@@ -168,11 +180,11 @@
             this.campaignDetailsRightPanel.Controls.Add(this.label6);
             this.campaignDetailsRightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.campaignDetailsRightPanel.Enabled = false;
-            this.campaignDetailsRightPanel.Location = new System.Drawing.Point(679, 4);
+            this.campaignDetailsRightPanel.Location = new System.Drawing.Point(724, 4);
             this.campaignDetailsRightPanel.Margin = new System.Windows.Forms.Padding(4);
             this.campaignDetailsRightPanel.Name = "campaignDetailsRightPanel";
             this.campaignDetailsRightPanel.Padding = new System.Windows.Forms.Padding(17, 22, 17, 22);
-            this.campaignDetailsRightPanel.Size = new System.Drawing.Size(667, 576);
+            this.campaignDetailsRightPanel.Size = new System.Drawing.Size(712, 576);
             this.campaignDetailsRightPanel.TabIndex = 1;
             // 
             // campaignManagersPanel
@@ -182,21 +194,8 @@
             this.campaignManagersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.campaignManagersPanel.Location = new System.Drawing.Point(17, 48);
             this.campaignManagersPanel.Name = "campaignManagersPanel";
-            this.campaignManagersPanel.Size = new System.Drawing.Size(633, 471);
+            this.campaignManagersPanel.Size = new System.Drawing.Size(678, 471);
             this.campaignManagersPanel.TabIndex = 4;
-            // 
-            // currentExperimenterProfile
-            // 
-            this.currentExperimenterProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.currentExperimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.currentExperimenterProfile.ExperimenterProfileType = "Experimenter";
-            this.currentExperimenterProfile.ExperimenterUsername = "Kevin";
-            this.currentExperimenterProfile.Location = new System.Drawing.Point(0, 0);
-            this.currentExperimenterProfile.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.currentExperimenterProfile.Name = "currentExperimenterProfile";
-            this.currentExperimenterProfile.Padding = new System.Windows.Forms.Padding(11, 15, 11, 15);
-            this.currentExperimenterProfile.Size = new System.Drawing.Size(633, 86);
-            this.currentExperimenterProfile.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -212,7 +211,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(633, 35);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(678, 35);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // textBox3
@@ -221,16 +220,16 @@
             this.textBox3.Location = new System.Drawing.Point(5, 5);
             this.textBox3.Margin = new System.Windows.Forms.Padding(5);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(496, 25);
+            this.textBox3.Size = new System.Drawing.Size(532, 25);
             this.textBox3.TabIndex = 0;
             // 
             // addExperimenterButton
             // 
             this.addExperimenterButton.AutoSize = true;
             this.addExperimenterButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.addExperimenterButton.Location = new System.Drawing.Point(509, 3);
+            this.addExperimenterButton.Location = new System.Drawing.Point(545, 3);
             this.addExperimenterButton.Name = "addExperimenterButton";
-            this.addExperimenterButton.Size = new System.Drawing.Size(121, 29);
+            this.addExperimenterButton.Size = new System.Drawing.Size(130, 29);
             this.addExperimenterButton.TabIndex = 1;
             this.addExperimenterButton.Text = "ADD";
             this.addExperimenterButton.UseVisualStyleBackColor = true;
@@ -257,7 +256,7 @@
             this.campaignDetailsLeftPanel.Location = new System.Drawing.Point(4, 4);
             this.campaignDetailsLeftPanel.Margin = new System.Windows.Forms.Padding(4);
             this.campaignDetailsLeftPanel.Name = "campaignDetailsLeftPanel";
-            this.campaignDetailsLeftPanel.Size = new System.Drawing.Size(667, 576);
+            this.campaignDetailsLeftPanel.Size = new System.Drawing.Size(712, 576);
             this.campaignDetailsLeftPanel.TabIndex = 0;
             // 
             // panel5
@@ -269,7 +268,7 @@
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(23, 30, 23, 30);
-            this.panel5.Size = new System.Drawing.Size(667, 243);
+            this.panel5.Size = new System.Drawing.Size(712, 243);
             this.panel5.TabIndex = 3;
             // 
             // campaignDescriptionTextBox
@@ -279,7 +278,7 @@
             this.campaignDescriptionTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.campaignDescriptionTextBox.Multiline = true;
             this.campaignDescriptionTextBox.Name = "campaignDescriptionTextBox";
-            this.campaignDescriptionTextBox.Size = new System.Drawing.Size(621, 157);
+            this.campaignDescriptionTextBox.Size = new System.Drawing.Size(666, 157);
             this.campaignDescriptionTextBox.TabIndex = 3;
             // 
             // label5
@@ -303,7 +302,7 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(17, 22, 17, 22);
-            this.panel4.Size = new System.Drawing.Size(667, 111);
+            this.panel4.Size = new System.Drawing.Size(712, 111);
             this.panel4.TabIndex = 2;
             // 
             // campaignEndDatePicker
@@ -312,7 +311,7 @@
             this.campaignEndDatePicker.Location = new System.Drawing.Point(17, 48);
             this.campaignEndDatePicker.Margin = new System.Windows.Forms.Padding(4);
             this.campaignEndDatePicker.Name = "campaignEndDatePicker";
-            this.campaignEndDatePicker.Size = new System.Drawing.Size(633, 25);
+            this.campaignEndDatePicker.Size = new System.Drawing.Size(678, 25);
             this.campaignEndDatePicker.TabIndex = 5;
             // 
             // label4
@@ -336,7 +335,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(17, 22, 17, 22);
-            this.panel3.Size = new System.Drawing.Size(667, 111);
+            this.panel3.Size = new System.Drawing.Size(712, 111);
             this.panel3.TabIndex = 1;
             // 
             // campaignStartDatePicker
@@ -345,7 +344,7 @@
             this.campaignStartDatePicker.Location = new System.Drawing.Point(17, 48);
             this.campaignStartDatePicker.Margin = new System.Windows.Forms.Padding(4);
             this.campaignStartDatePicker.Name = "campaignStartDatePicker";
-            this.campaignStartDatePicker.Size = new System.Drawing.Size(633, 25);
+            this.campaignStartDatePicker.Size = new System.Drawing.Size(678, 25);
             this.campaignStartDatePicker.TabIndex = 4;
             // 
             // label3
@@ -369,7 +368,7 @@
             this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(17, 22, 17, 22);
-            this.panel6.Size = new System.Drawing.Size(667, 111);
+            this.panel6.Size = new System.Drawing.Size(712, 111);
             this.panel6.TabIndex = 0;
             // 
             // campaignNameTextBox
@@ -378,7 +377,7 @@
             this.campaignNameTextBox.Location = new System.Drawing.Point(17, 48);
             this.campaignNameTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.campaignNameTextBox.Name = "campaignNameTextBox";
-            this.campaignNameTextBox.Size = new System.Drawing.Size(633, 25);
+            this.campaignNameTextBox.Size = new System.Drawing.Size(678, 25);
             this.campaignNameTextBox.TabIndex = 1;
             // 
             // label2
@@ -402,7 +401,7 @@
             this.label1.Location = new System.Drawing.Point(4, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1350, 46);
+            this.label1.Size = new System.Drawing.Size(1440, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "CAMPAIGN DETAILS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -413,7 +412,7 @@
             this.dataSourcesTabPage.Location = new System.Drawing.Point(4, 5);
             this.dataSourcesTabPage.Name = "dataSourcesTabPage";
             this.dataSourcesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.dataSourcesTabPage.Size = new System.Drawing.Size(1358, 638);
+            this.dataSourcesTabPage.Size = new System.Drawing.Size(1491, 638);
             this.dataSourcesTabPage.TabIndex = 1;
             this.dataSourcesTabPage.Text = "tabPage1";
             this.dataSourcesTabPage.UseVisualStyleBackColor = true;
@@ -424,8 +423,94 @@
             this.dataSourcesFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataSourcesFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.dataSourcesFlowLayoutPanel.Name = "dataSourcesFlowLayoutPanel";
-            this.dataSourcesFlowLayoutPanel.Size = new System.Drawing.Size(1352, 632);
+            this.dataSourcesFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.dataSourcesFlowLayoutPanel.Size = new System.Drawing.Size(1485, 632);
             this.dataSourcesFlowLayoutPanel.TabIndex = 0;
+            // 
+            // recruitingTabPage
+            // 
+            this.recruitingTabPage.Controls.Add(this.panel8);
+            this.recruitingTabPage.Controls.Add(this.panel7);
+            this.recruitingTabPage.Location = new System.Drawing.Point(4, 5);
+            this.recruitingTabPage.Name = "recruitingTabPage";
+            this.recruitingTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.recruitingTabPage.Size = new System.Drawing.Size(1491, 638);
+            this.recruitingTabPage.TabIndex = 3;
+            this.recruitingTabPage.Text = "tabPage1";
+            this.recruitingTabPage.UseVisualStyleBackColor = true;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.White;
+            this.panel8.Controls.Add(this.newParticipantUsernameTextBox);
+            this.panel8.Controls.Add(this.label10);
+            this.panel8.Controls.Add(this.addParticipantButton);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(3, 610);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1485, 25);
+            this.panel8.TabIndex = 1;
+            // 
+            // newParticipantUsernameTextBox
+            // 
+            this.newParticipantUsernameTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.newParticipantUsernameTextBox.Location = new System.Drawing.Point(128, 0);
+            this.newParticipantUsernameTextBox.Name = "newParticipantUsernameTextBox";
+            this.newParticipantUsernameTextBox.Size = new System.Drawing.Size(734, 25);
+            this.newParticipantUsernameTextBox.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 25);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "USERNAME";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // addParticipantButton
+            // 
+            this.addParticipantButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.addParticipantButton.Location = new System.Drawing.Point(1149, 0);
+            this.addParticipantButton.Name = "addParticipantButton";
+            this.addParticipantButton.Size = new System.Drawing.Size(336, 25);
+            this.addParticipantButton.TabIndex = 2;
+            this.addParticipantButton.Text = "ADD PARTICIPANT";
+            this.addParticipantButton.UseVisualStyleBackColor = true;
+            this.addParticipantButton.Click += new System.EventHandler(this.addParticipantButton_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Controls.Add(this.participantsListBox);
+            this.panel7.Controls.Add(this.label8);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1485, 632);
+            this.panel7.TabIndex = 0;
+            // 
+            // participantsListBox
+            // 
+            this.participantsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.participantsListBox.FormattingEnabled = true;
+            this.participantsListBox.ItemHeight = 18;
+            this.participantsListBox.Location = new System.Drawing.Point(0, 29);
+            this.participantsListBox.Name = "participantsListBox";
+            this.participantsListBox.Size = new System.Drawing.Size(1485, 603);
+            this.participantsListBox.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 29);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Participants";
             // 
             // confirmDetailsTabPage
             // 
@@ -433,7 +518,7 @@
             this.confirmDetailsTabPage.Location = new System.Drawing.Point(4, 5);
             this.confirmDetailsTabPage.Name = "confirmDetailsTabPage";
             this.confirmDetailsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.confirmDetailsTabPage.Size = new System.Drawing.Size(1358, 638);
+            this.confirmDetailsTabPage.Size = new System.Drawing.Size(1491, 638);
             this.confirmDetailsTabPage.TabIndex = 2;
             this.confirmDetailsTabPage.Text = "tabPage1";
             this.confirmDetailsTabPage.UseVisualStyleBackColor = true;
@@ -461,7 +546,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1352, 632);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1485, 632);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // confirmDataSourcesLabel
@@ -470,9 +555,9 @@
             this.confirmDataSourcesLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmDataSourcesLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmDataSourcesLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
-            this.confirmDataSourcesLabel.Location = new System.Drawing.Point(679, 504);
+            this.confirmDataSourcesLabel.Location = new System.Drawing.Point(745, 504);
             this.confirmDataSourcesLabel.Name = "confirmDataSourcesLabel";
-            this.confirmDataSourcesLabel.Size = new System.Drawing.Size(670, 128);
+            this.confirmDataSourcesLabel.Size = new System.Drawing.Size(737, 128);
             this.confirmDataSourcesLabel.TabIndex = 15;
             this.confirmDataSourcesLabel.Text = "Accelerometer, Gyroscope, Heart Rate Monitor";
             this.confirmDataSourcesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -483,9 +568,9 @@
             this.confirmPeriodLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmPeriodLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmPeriodLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
-            this.confirmPeriodLabel.Location = new System.Drawing.Point(679, 378);
+            this.confirmPeriodLabel.Location = new System.Drawing.Point(745, 378);
             this.confirmPeriodLabel.Name = "confirmPeriodLabel";
-            this.confirmPeriodLabel.Size = new System.Drawing.Size(670, 126);
+            this.confirmPeriodLabel.Size = new System.Drawing.Size(737, 126);
             this.confirmPeriodLabel.TabIndex = 14;
             this.confirmPeriodLabel.Text = "2019-02-01 to 2019-05-01";
             this.confirmPeriodLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -496,9 +581,9 @@
             this.confirmDescriptionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmDescriptionLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmDescriptionLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
-            this.confirmDescriptionLabel.Location = new System.Drawing.Point(679, 252);
+            this.confirmDescriptionLabel.Location = new System.Drawing.Point(745, 252);
             this.confirmDescriptionLabel.Name = "confirmDescriptionLabel";
-            this.confirmDescriptionLabel.Size = new System.Drawing.Size(670, 126);
+            this.confirmDescriptionLabel.Size = new System.Drawing.Size(737, 126);
             this.confirmDescriptionLabel.TabIndex = 13;
             this.confirmDescriptionLabel.Text = "This is a test campaign created by Kevin";
             this.confirmDescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -509,9 +594,9 @@
             this.confirmNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmNameLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
-            this.confirmNameLabel.Location = new System.Drawing.Point(679, 126);
+            this.confirmNameLabel.Location = new System.Drawing.Point(745, 126);
             this.confirmNameLabel.Name = "confirmNameLabel";
-            this.confirmNameLabel.Size = new System.Drawing.Size(670, 126);
+            this.confirmNameLabel.Size = new System.Drawing.Size(737, 126);
             this.confirmNameLabel.TabIndex = 12;
             this.confirmNameLabel.Text = "Test campaign by Kevin";
             this.confirmNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -524,7 +609,7 @@
             this.label15.Font = new System.Drawing.Font("Calibri", 24F);
             this.label15.Location = new System.Drawing.Point(3, 504);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(670, 128);
+            this.label15.Size = new System.Drawing.Size(736, 128);
             this.label15.TabIndex = 10;
             this.label15.Text = "Data Sources";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -537,7 +622,7 @@
             this.label13.Font = new System.Drawing.Font("Calibri", 24F);
             this.label13.Location = new System.Drawing.Point(3, 378);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(670, 126);
+            this.label13.Size = new System.Drawing.Size(736, 126);
             this.label13.TabIndex = 8;
             this.label13.Text = "Period";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -550,7 +635,7 @@
             this.label11.Font = new System.Drawing.Font("Calibri", 24F);
             this.label11.Location = new System.Drawing.Point(3, 252);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(670, 126);
+            this.label11.Size = new System.Drawing.Size(736, 126);
             this.label11.TabIndex = 4;
             this.label11.Text = "Description";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -563,7 +648,7 @@
             this.label9.Font = new System.Drawing.Font("Calibri", 24F);
             this.label9.Location = new System.Drawing.Point(3, 126);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(670, 126);
+            this.label9.Size = new System.Drawing.Size(736, 126);
             this.label9.TabIndex = 2;
             this.label9.Text = "Name";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -574,16 +659,29 @@
             this.label7.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(670, 126);
+            this.label7.Size = new System.Drawing.Size(736, 126);
             this.label7.TabIndex = 0;
             this.label7.Text = "CONFIRM CAMAIGN DETAILS";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // currentExperimenterProfile
+            // 
+            this.currentExperimenterProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currentExperimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.currentExperimenterProfile.ExperimenterProfileType = "Experimenter";
+            this.currentExperimenterProfile.ExperimenterUsername = "Kevin";
+            this.currentExperimenterProfile.Location = new System.Drawing.Point(0, 0);
+            this.currentExperimenterProfile.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.currentExperimenterProfile.Name = "currentExperimenterProfile";
+            this.currentExperimenterProfile.Padding = new System.Windows.Forms.Padding(11, 15, 11, 15);
+            this.currentExperimenterProfile.Size = new System.Drawing.Size(678, 86);
+            this.currentExperimenterProfile.TabIndex = 0;
             // 
             // Form_CampaignCreatorWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 692);
+            this.ClientSize = new System.Drawing.Size(1456, 692);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Calibri", 11F);
@@ -616,6 +714,11 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.dataSourcesTabPage.ResumeLayout(false);
+            this.recruitingTabPage.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.confirmDetailsTabPage.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -663,5 +766,13 @@
         private System.Windows.Forms.Label confirmPeriodLabel;
         private System.Windows.Forms.Label confirmDescriptionLabel;
         private System.Windows.Forms.Label confirmNameLabel;
+        private System.Windows.Forms.TabPage recruitingTabPage;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ListBox participantsListBox;
+        private System.Windows.Forms.Button addParticipantButton;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox newParticipantUsernameTextBox;
     }
 }

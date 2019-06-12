@@ -13,28 +13,23 @@ namespace EasyTrack_Dashboard
         {
             InitializeComponent();
 
-            moveBackToLoginForm = false;
 
             experimenterProfile.ExperimenterUsername = Properties.Settings.Default.Username;
             experimenterProfile.ExperimenterProfileType = Properties.Settings.Default.Type;
 
             logoutToolStripMenuItem.Text = $"Logout from [{experimenterProfile.ExperimenterUsername}]";
+            rootTabControl.SelectTab(campaignsTabPage);
 
             participantProfileElems = new Dictionary<string, UC_Participant>();
-            startLiveUserTrackingToolStripMenuItem.PerformClick();
-
             campaignElems = new Dictionary<int, UC_Campaign>();
-            startLiveCampaignTrackingToolStripMenuItem.PerformClick();
-
-            rootTabControl.SelectedTab = campaignsTabPage;
+            startParticipantTracking();
+            startCampaignTracking();
         }
 
         #region Variables
-        private bool moveBackToLoginForm;
-        private Thread participantStatsUpdateThread;
         private Dictionary<string, UC_Participant> participantProfileElems;
-        private Thread campaignsListUpdateThread;
         private Dictionary<int, UC_Campaign> campaignElems;
+        private object participantThreadLock = new object(), campaignThreadLock = new object();
         #endregion
 
         private void toggleFeaturesButton_Click(object sender, EventArgs e)
@@ -64,26 +59,35 @@ namespace EasyTrack_Dashboard
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            stopLiveUserTrackingToolStripMenuItem.PerformClick();
             Properties.Settings.Default.LoggedIn = false;
             Properties.Settings.Default.Save();
             DialogResult = DialogResult.OK;
-            moveBackToLoginForm = true;
-            Close();
+            Application.Restart();
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void createNewCampaignButton_Click(object sender, EventArgs e)
         {
-            if (!moveBackToLoginForm)
-                DialogResult = DialogResult.Cancel;
+            Form_CampaignCreatorWindow form = new Form_CampaignCreatorWindow();
+            if (form.ShowDialog() == DialogResult.OK) { }
         }
 
-        private void startLiveUserTrackingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void createNewCampaignButton_Click_1(object sender, EventArgs e)
         {
-            if (participantStatsUpdateThread != null && participantStatsUpdateThread.IsAlive)
-                participantStatsUpdateThread.Abort();
+            Form_CampaignCreatorWindow form = new Form_CampaignCreatorWindow();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
 
-            participantStatsUpdateThread = new Thread(async () =>
+            }
+        }
+
+        private void feedbackLabel_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("mailto:easytracl_support@googlegroups.com");
+        }
+
+        private void startParticipantTracking()
+        {
+            new Thread(async () =>
             {
                 while (true)
                 {
@@ -126,50 +130,39 @@ namespace EasyTrack_Dashboard
                             }
                             else
                             {
-                                logoutToolStripMenuItem.PerformClick();
-                                throw new Exception($"Bad result from server. Content: {resJson.ToString()}");
+                                Tools.runOnUiThread(this, () => { logoutToolStripMenuItem.PerformClick(); });
+                                throw new HttpRequestException($"Bad result from server. Content: {resJson.ToString()}");
                             }
                         }
                         else
                         {
                             Application.Exit();
-                            throw new Exception($"Bad http result, status code {result.StatusCode}");
+                            throw new HttpRequestException($"Bad http result, status code {result.StatusCode}");
                         }
                     }
-                    catch (Exception ex)
+                    catch (HttpRequestException ex)
                     {
-                        try
+                        Tools.runOnUiThread(this, () =>
                         {
-                            Tools.runOnUiThread(this, () => { MessageBox.Show(this, $"Error occurred while loading user's list.\nReason: {ex.Message}", "Failed to load the user list", MessageBoxButtons.OK, MessageBoxIcon.Error); });
-                        }
-                        catch
-                        {
-
-                        }
+                            lock (participantThreadLock)
+                            {
+                                MessageBox.Show(this, $"Error occurred while loading user's list.\nReason: {ex.Message}", "Failed to load the user list", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        });
+                        Monitor.Wait(participantThreadLock);
                     }
                     Thread.Sleep(3000);
                 }
-            });
-
-            participantStatsUpdateThread.Start();
+            }).Start();
         }
 
-        private void stopLiveUserTrackingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void startCampaignTracking()
         {
-            if (participantStatsUpdateThread != null && participantStatsUpdateThread.IsAlive)
-                participantStatsUpdateThread.Abort();
-        }
-
-        private void startLiveCampaignTrackingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (campaignsListUpdateThread != null && campaignsListUpdateThread.IsAlive)
-                campaignsListUpdateThread.Abort();
-
-            campaignsListUpdateThread = new Thread(async () =>
+            new Thread(async () =>
             {
-                while (true)
+                try
                 {
-                    try
+                    while (true)
                     {
                         HttpResponseMessage result = await Tools.post(Tools.API_GET_CAMPAIGNS, new Dictionary<string, string>
                         {
@@ -190,7 +183,7 @@ namespace EasyTrack_Dashboard
                                         {
                                             UC_Campaign campaign = new UC_Campaign();
                                             campaign.Dock = DockStyle.Top;
-                                            campaignsPanel.Controls.Add(campaign);
+                                            campaignStatsPanel.Controls.Add(campaign);
 
                                             campaignElems[campaign_id] = campaign;
                                             campaignElems[campaign_id].addDetailsClickHandler((snd, evt) =>
@@ -212,62 +205,34 @@ namespace EasyTrack_Dashboard
                                             campaignElems[campaign_id].addDataSource(obj["source_id"], obj["source_name"], obj["device"], obj["data_rate"]);
                                     });
                                 }
-                                Tools.runOnUiThread(this, () => { campaignsPanel.Controls.Remove(topCampaignDescrPanel); campaignsPanel.Controls.Add(topCampaignDescrPanel); });
+                                Tools.runOnUiThread(this, () => { campaignStatsPanel.Controls.Remove(topCampaignDescrPanel); campaignStatsPanel.Controls.Add(topCampaignDescrPanel); });
                             }
                             else
                             {
                                 logoutToolStripMenuItem.PerformClick();
-                                throw new Exception($"Bad result from server. Content: {resJson.ToString()}");
+                                throw new HttpRequestException($"Bad result from server. Content: {resJson.ToString()}");
                             }
                         }
                         else
                         {
                             Application.Exit();
-                            throw new Exception($"Bad http result, status code {result.StatusCode}");
+                            throw new HttpRequestException($"Bad http result, status code {result.StatusCode}");
                         }
+                        Thread.Sleep(3000);
                     }
-                    catch (Exception ex)
+                }
+                catch (HttpRequestException ex)
+                {
+                    Tools.runOnUiThread(this, () =>
                     {
-                        try
+                        lock (campaignThreadLock)
                         {
                             Tools.runOnUiThread(this, () => { MessageBox.Show(this, $"Error occurred while loading the list of your campaigns.\nReason: {ex.Message}", "Failed to load the user list", MessageBoxButtons.OK, MessageBoxIcon.Error); });
                         }
-                        catch
-                        {
-
-                        }
-                    }
-                    Thread.Sleep(60000);
+                    });
+                    Monitor.Wait(campaignThreadLock);
                 }
-            });
-
-            campaignsListUpdateThread.Start();
-        }
-
-        private void stopLiveCampaignTrackingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (campaignsListUpdateThread != null && campaignsListUpdateThread.IsAlive)
-                campaignsListUpdateThread.Abort();
-        }
-
-        private void createNewCampaignButton_Click(object sender, EventArgs e)
-        {
-            Form_CampaignCreatorWindow form = new Form_CampaignCreatorWindow();
-            if (form.ShowDialog() == DialogResult.OK) { }
-        }
-
-        private void createNewCampaignButton_Click_1(object sender, EventArgs e)
-        {
-            Form_CampaignCreatorWindow form = new Form_CampaignCreatorWindow();
-            if (form.ShowDialog(this) == DialogResult.OK)
-            {
-
-            }
-        }
-
-        private void feedbackLabel_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start("mailto:easytracl_support@googlegroups.com");
+            }).Start();
         }
     }
 }

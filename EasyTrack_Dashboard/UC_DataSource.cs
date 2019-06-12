@@ -15,6 +15,7 @@ namespace EasyTrack_Dashboard
         public string SourceName { set { labelSourceName.Text = value; } get { return labelSourceName.Text; } }
         public string DeviceName { set { labelDeviceName.Text = value; } get { return labelDeviceName.Text; } }
         public bool IsSelected { get { return dataSrcCheckBox.Checked; } }
+        public Image DataSourceIcon { get { return dataSrcIconLabel.Image; } set { dataSrcIconLabel.Image = value; } }
         public int DataRate
         {
             get
@@ -31,6 +32,7 @@ namespace EasyTrack_Dashboard
         {
             dataSrcCheckBox.Checked = !dataSrcCheckBox.Checked;
             BackColor = dataSrcCheckBox.Checked ? Color.FromName("Info") : Color.FromName("Control");
+            dataRateTextBox.Enabled = IsSelected;
         }
 
         private void dataRateTextBox_TextChanged(object sender, EventArgs e)

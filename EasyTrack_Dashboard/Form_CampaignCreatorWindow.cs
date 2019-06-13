@@ -66,7 +66,7 @@ namespace EasyTrack_Dashboard
                                                 DeviceName = dataSrc["device"],
                                                 SourceName = dataSrc["source_name"],
                                                 DataRate = dataSrc["data_rate"],
-                                                Tag = dataSrc["source_id"],
+                                                SourceId = dataSrc["source_id"],
                                                 DataSourceIcon = dataSrcIcons[key],
                                                 Size = new Size(400, 72)
                                             };
@@ -81,14 +81,7 @@ namespace EasyTrack_Dashboard
                 }
                 catch (IOException ex)
                 {
-                    try
-                    {
-                        Tools.runOnUiThread(this, () => { MessageBox.Show(this, $"Error occurred while loading unique data sources.\nReason: {ex.Message}", "Failed to load the data sources", MessageBoxButtons.OK, MessageBoxIcon.Error); });
-                    }
-                    catch
-                    {
-
-                    }
+                    Tools.runOnUiThread(this, () => { MessageBox.Show(this, $"Error occurred while loading unique data sources.\nReason: {ex.Message}", "Failed to load the data sources", MessageBoxButtons.OK, MessageBoxIcon.Error); });
                 }
             }).Start();
         }
@@ -193,9 +186,10 @@ namespace EasyTrack_Dashboard
                 UC_DataSource elem = (UC_DataSource)dataSourcesFlowLayoutPanel.Controls[n];
                 if (!elem.IsSelected)
                     continue;
-                JsonObject json = new JsonObject(new KeyValuePair<string, JsonValue>("source_id", (JsonValue)elem.Tag));
+                JsonObject json = new JsonObject();
                 json.Add("device", elem.DeviceName);
                 json.Add("source_name", elem.SourceName);
+                json.Add("source_id", elem.SourceId);
                 json.Add("data_rate", elem.DataRate);
                 dataSrcsJson.Add(json);
             }

@@ -132,6 +132,7 @@
             this.dataSrcCheckBox.TabIndex = 8;
             this.dataSrcCheckBox.TabStop = false;
             this.dataSrcCheckBox.UseVisualStyleBackColor = true;
+            this.dataSrcCheckBox.Visible = false;
             this.dataSrcCheckBox.Click += new System.EventHandler(this.dataSrcCheckToggle_Click);
             // 
             // UC_DataSource

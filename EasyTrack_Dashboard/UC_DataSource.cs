@@ -13,6 +13,7 @@ namespace EasyTrack_Dashboard
         }
 
         public string SourceName { set { labelSourceName.Text = value; } get { return labelSourceName.Text; } }
+        public int SourceId { set; get; }
         public string DeviceName { set { labelDeviceName.Text = value; } get { return labelDeviceName.Text; } }
         public bool IsSelected { get { return dataSrcCheckBox.Checked; } }
         public Image DataSourceIcon { get { return dataSrcIconLabel.Image; } set { dataSrcIconLabel.Image = value; } }
@@ -20,7 +21,7 @@ namespace EasyTrack_Dashboard
         {
             get
             {
-                return dataRateTextBox.TextLength == 0 ? 0 : int.Parse(dataRateTextBox.Text);
+                return dataRateTextBox.TextLength == 0 || int.Parse(dataRateTextBox.Text) < 10 ? 10 : int.Parse(dataRateTextBox.Text);
             }
             set
             {

@@ -36,6 +36,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.campaignDetailsRightPanel = new System.Windows.Forms.Panel();
             this.campaignManagersPanel = new System.Windows.Forms.Panel();
+            this.currentExperimenterProfile = new EasyTrack_Dashboard.UC_Experimenter();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.addExperimenterButton = new System.Windows.Forms.Button();
@@ -75,7 +76,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.currentExperimenterProfile = new EasyTrack_Dashboard.UC_Experimenter();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.rootTabControl.SuspendLayout();
@@ -196,6 +196,19 @@
             this.campaignManagersPanel.Name = "campaignManagersPanel";
             this.campaignManagersPanel.Size = new System.Drawing.Size(678, 471);
             this.campaignManagersPanel.TabIndex = 4;
+            // 
+            // currentExperimenterProfile
+            // 
+            this.currentExperimenterProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.currentExperimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.currentExperimenterProfile.ExperimenterProfileType = "Experimenter";
+            this.currentExperimenterProfile.ExperimenterUsername = "Kevin";
+            this.currentExperimenterProfile.Location = new System.Drawing.Point(0, 0);
+            this.currentExperimenterProfile.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.currentExperimenterProfile.Name = "currentExperimenterProfile";
+            this.currentExperimenterProfile.Padding = new System.Windows.Forms.Padding(11, 15, 11, 15);
+            this.currentExperimenterProfile.Size = new System.Drawing.Size(678, 86);
+            this.currentExperimenterProfile.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -412,7 +425,7 @@
             this.dataSourcesTabPage.Location = new System.Drawing.Point(4, 5);
             this.dataSourcesTabPage.Name = "dataSourcesTabPage";
             this.dataSourcesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.dataSourcesTabPage.Size = new System.Drawing.Size(1491, 638);
+            this.dataSourcesTabPage.Size = new System.Drawing.Size(1448, 638);
             this.dataSourcesTabPage.TabIndex = 1;
             this.dataSourcesTabPage.Text = "tabPage1";
             this.dataSourcesTabPage.UseVisualStyleBackColor = true;
@@ -424,7 +437,7 @@
             this.dataSourcesFlowLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.dataSourcesFlowLayoutPanel.Name = "dataSourcesFlowLayoutPanel";
             this.dataSourcesFlowLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
-            this.dataSourcesFlowLayoutPanel.Size = new System.Drawing.Size(1485, 632);
+            this.dataSourcesFlowLayoutPanel.Size = new System.Drawing.Size(1442, 632);
             this.dataSourcesFlowLayoutPanel.TabIndex = 0;
             // 
             // recruitingTabPage
@@ -434,7 +447,7 @@
             this.recruitingTabPage.Location = new System.Drawing.Point(4, 5);
             this.recruitingTabPage.Name = "recruitingTabPage";
             this.recruitingTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.recruitingTabPage.Size = new System.Drawing.Size(1491, 638);
+            this.recruitingTabPage.Size = new System.Drawing.Size(1448, 638);
             this.recruitingTabPage.TabIndex = 3;
             this.recruitingTabPage.Text = "tabPage1";
             this.recruitingTabPage.UseVisualStyleBackColor = true;
@@ -448,7 +461,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel8.Location = new System.Drawing.Point(3, 610);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1485, 25);
+            this.panel8.Size = new System.Drawing.Size(1442, 25);
             this.panel8.TabIndex = 1;
             // 
             // newParticipantUsernameTextBox
@@ -472,7 +485,7 @@
             // addParticipantButton
             // 
             this.addParticipantButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.addParticipantButton.Location = new System.Drawing.Point(1149, 0);
+            this.addParticipantButton.Location = new System.Drawing.Point(1106, 0);
             this.addParticipantButton.Name = "addParticipantButton";
             this.addParticipantButton.Size = new System.Drawing.Size(336, 25);
             this.addParticipantButton.TabIndex = 2;
@@ -488,7 +501,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1485, 632);
+            this.panel7.Size = new System.Drawing.Size(1442, 632);
             this.panel7.TabIndex = 0;
             // 
             // participantsListBox
@@ -498,7 +511,7 @@
             this.participantsListBox.ItemHeight = 18;
             this.participantsListBox.Location = new System.Drawing.Point(0, 29);
             this.participantsListBox.Name = "participantsListBox";
-            this.participantsListBox.Size = new System.Drawing.Size(1485, 603);
+            this.participantsListBox.Size = new System.Drawing.Size(1442, 603);
             this.participantsListBox.TabIndex = 1;
             // 
             // label8
@@ -518,7 +531,7 @@
             this.confirmDetailsTabPage.Location = new System.Drawing.Point(4, 5);
             this.confirmDetailsTabPage.Name = "confirmDetailsTabPage";
             this.confirmDetailsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.confirmDetailsTabPage.Size = new System.Drawing.Size(1491, 638);
+            this.confirmDetailsTabPage.Size = new System.Drawing.Size(1448, 638);
             this.confirmDetailsTabPage.TabIndex = 2;
             this.confirmDetailsTabPage.Text = "tabPage1";
             this.confirmDetailsTabPage.UseVisualStyleBackColor = true;
@@ -546,7 +559,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1485, 632);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1442, 632);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // confirmDataSourcesLabel
@@ -555,9 +568,9 @@
             this.confirmDataSourcesLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmDataSourcesLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmDataSourcesLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
-            this.confirmDataSourcesLabel.Location = new System.Drawing.Point(745, 504);
+            this.confirmDataSourcesLabel.Location = new System.Drawing.Point(724, 504);
             this.confirmDataSourcesLabel.Name = "confirmDataSourcesLabel";
-            this.confirmDataSourcesLabel.Size = new System.Drawing.Size(737, 128);
+            this.confirmDataSourcesLabel.Size = new System.Drawing.Size(715, 128);
             this.confirmDataSourcesLabel.TabIndex = 15;
             this.confirmDataSourcesLabel.Text = "Accelerometer, Gyroscope, Heart Rate Monitor";
             this.confirmDataSourcesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -568,9 +581,9 @@
             this.confirmPeriodLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmPeriodLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmPeriodLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
-            this.confirmPeriodLabel.Location = new System.Drawing.Point(745, 378);
+            this.confirmPeriodLabel.Location = new System.Drawing.Point(724, 378);
             this.confirmPeriodLabel.Name = "confirmPeriodLabel";
-            this.confirmPeriodLabel.Size = new System.Drawing.Size(737, 126);
+            this.confirmPeriodLabel.Size = new System.Drawing.Size(715, 126);
             this.confirmPeriodLabel.TabIndex = 14;
             this.confirmPeriodLabel.Text = "2019-02-01 to 2019-05-01";
             this.confirmPeriodLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -581,9 +594,9 @@
             this.confirmDescriptionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmDescriptionLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmDescriptionLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
-            this.confirmDescriptionLabel.Location = new System.Drawing.Point(745, 252);
+            this.confirmDescriptionLabel.Location = new System.Drawing.Point(724, 252);
             this.confirmDescriptionLabel.Name = "confirmDescriptionLabel";
-            this.confirmDescriptionLabel.Size = new System.Drawing.Size(737, 126);
+            this.confirmDescriptionLabel.Size = new System.Drawing.Size(715, 126);
             this.confirmDescriptionLabel.TabIndex = 13;
             this.confirmDescriptionLabel.Text = "This is a test campaign created by Kevin";
             this.confirmDescriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -594,9 +607,9 @@
             this.confirmNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.confirmNameLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmNameLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold);
-            this.confirmNameLabel.Location = new System.Drawing.Point(745, 126);
+            this.confirmNameLabel.Location = new System.Drawing.Point(724, 126);
             this.confirmNameLabel.Name = "confirmNameLabel";
-            this.confirmNameLabel.Size = new System.Drawing.Size(737, 126);
+            this.confirmNameLabel.Size = new System.Drawing.Size(715, 126);
             this.confirmNameLabel.TabIndex = 12;
             this.confirmNameLabel.Text = "Test campaign by Kevin";
             this.confirmNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -609,7 +622,7 @@
             this.label15.Font = new System.Drawing.Font("Calibri", 24F);
             this.label15.Location = new System.Drawing.Point(3, 504);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(736, 128);
+            this.label15.Size = new System.Drawing.Size(715, 128);
             this.label15.TabIndex = 10;
             this.label15.Text = "Data Sources";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -622,7 +635,7 @@
             this.label13.Font = new System.Drawing.Font("Calibri", 24F);
             this.label13.Location = new System.Drawing.Point(3, 378);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(736, 126);
+            this.label13.Size = new System.Drawing.Size(715, 126);
             this.label13.TabIndex = 8;
             this.label13.Text = "Period";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -635,7 +648,7 @@
             this.label11.Font = new System.Drawing.Font("Calibri", 24F);
             this.label11.Location = new System.Drawing.Point(3, 252);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(736, 126);
+            this.label11.Size = new System.Drawing.Size(715, 126);
             this.label11.TabIndex = 4;
             this.label11.Text = "Description";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -648,7 +661,7 @@
             this.label9.Font = new System.Drawing.Font("Calibri", 24F);
             this.label9.Location = new System.Drawing.Point(3, 126);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(736, 126);
+            this.label9.Size = new System.Drawing.Size(715, 126);
             this.label9.TabIndex = 2;
             this.label9.Text = "Name";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -659,23 +672,10 @@
             this.label7.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(736, 126);
+            this.label7.Size = new System.Drawing.Size(715, 126);
             this.label7.TabIndex = 0;
             this.label7.Text = "CONFIRM CAMAIGN DETAILS";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // currentExperimenterProfile
-            // 
-            this.currentExperimenterProfile.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.currentExperimenterProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.currentExperimenterProfile.ExperimenterProfileType = "Experimenter";
-            this.currentExperimenterProfile.ExperimenterUsername = "Kevin";
-            this.currentExperimenterProfile.Location = new System.Drawing.Point(0, 0);
-            this.currentExperimenterProfile.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
-            this.currentExperimenterProfile.Name = "currentExperimenterProfile";
-            this.currentExperimenterProfile.Padding = new System.Windows.Forms.Padding(11, 15, 11, 15);
-            this.currentExperimenterProfile.Size = new System.Drawing.Size(678, 86);
-            this.currentExperimenterProfile.TabIndex = 0;
             // 
             // Form_CampaignCreatorWindow
             // 

@@ -9,8 +9,7 @@ namespace EasyTrack_Dashboard
     class Tools
     {
         #region Constants
-        internal const string SERVER_URL = "http://165.246.43.162:36012";
-        // internal const string SERVER_URL = "http://165.246.43.163:9876";
+        internal const string SERVER_URL = "http://165.246.43.97:36012";
 
         internal const string API_REGISTER = "register";
         internal const string API_UNREGISTER = "unregister";

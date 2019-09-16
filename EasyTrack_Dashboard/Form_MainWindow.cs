@@ -149,7 +149,7 @@ namespace EasyTrack_Dashboard
                                 MessageBox.Show(this, $"Error occurred while loading user's list.\nReason: {ex.Message}", "Failed to load the user list", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         });
-                        Monitor.Wait(participantThreadLock);
+                        // Monitor.Wait(participantThreadLock);
                     }
                     Thread.Sleep(3000);
                 }
@@ -230,7 +230,7 @@ namespace EasyTrack_Dashboard
                             Tools.runOnUiThread(this, () => { MessageBox.Show(this, $"Error occurred while loading the list of your campaigns.\nReason: {ex.Message}", "Failed to load the user list", MessageBoxButtons.OK, MessageBoxIcon.Error); });
                         }
                     });
-                    Monitor.Wait(campaignThreadLock);
+                    // Monitor.Wait(campaignThreadLock);
                 }
             }).Start();
         }
